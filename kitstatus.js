@@ -128,3 +128,4 @@ function sync_kits( ) {
 }
 
 $( init );
+ 
