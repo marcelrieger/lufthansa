@@ -1,0 +1,15 @@
+tr.ready td {
+	background-color: blue;
+}
+
+tr.final td {
+	background-color: green;
+}
+
+tr.prepared td {
+	background-color: gray;
+}
+
+span.id {
+	display: none;
+}

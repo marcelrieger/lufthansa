@@ -1,0 +1,1 @@
+WITH t AS(UPDATE kits SET group_count=group_count+1 WHERE id=$kit_id AND order_id=$order_id RETURNING group_count-1 groupno) INSERT INTO groups(order_id,kit_id,count,target,class_id,id) SELECT $order_id,$kit_id,0,$target,$class,t.groupno FROM t;
