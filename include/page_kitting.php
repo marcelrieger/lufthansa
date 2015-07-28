@@ -27,6 +27,7 @@
         <div class="col">
           <div class="data">
             <span class="trow"><b>Anzahl an Kits:</b> <?php echo $order[ 1 ];?></span>
+            <span class="trow"><b>Auftragsfrist:</b> xx.xx.xxxx</span>
           </div>
         </div>
       </div>

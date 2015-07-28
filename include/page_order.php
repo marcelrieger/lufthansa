@@ -30,7 +30,7 @@
         <div class="col">
           <div class="data">
             <span class="trow"><b>Status:</b> in Bearbeitung</span>
-            <span class="trow"><b>Mitarbeiter:</b> <?php echo $kit[ "username" ];?></span>
+            <?php if isset($kit[ "username" ]):?><span class="trow"><b>Mitarbeiter:</b> <?php echo $kit[ "username" ];endif;?></span>
           </div>
         </div>
       </div>
