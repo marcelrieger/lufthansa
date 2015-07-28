@@ -31,15 +31,13 @@
 		<div class="page">
 
       <?php if (count($messages)>0) { ?>
-      <div class="container">
-
-
+        <div class="pagecontent"><div class="container">
       <?php foreach( $messages as $message ) { ?>
         <div class="alert alert-<?php echo $message[ 0 ]; ?>" role="alert">
           <a href="#" class="alert-link"><?php echo $message[ 1 ]; ?></a>
         </div>
       <?php } ?>
-      </div>
+    </div></div>
       <?php }
       $messages = array( ); ?>
 
