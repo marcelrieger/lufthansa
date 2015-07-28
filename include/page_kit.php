@@ -54,9 +54,6 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
                 <th>
                   Gewicht
                 </th>
-								<th>
-                  Lagerplatz
-                </th>
                 <th>
                   Inventar
                 </th>
@@ -66,6 +63,9 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
                 <th>
                   Entnommene Menge
                 </th>
+								<th>
+									Lagerplatz
+								</th>
                 <th>
                   RFID Status
                 </th>
