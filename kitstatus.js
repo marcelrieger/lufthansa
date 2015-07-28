@@ -33,7 +33,7 @@ function new_tr( goal ) {
 
 		tr_class = "prepared"
 	}
-	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
+	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td></td><td></td><td></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
 
 	result.find( "input" ).click( function( e ) { $( e.target ).data( "requested",true ); } );
 
@@ -102,7 +102,7 @@ function sync_result_funcfac( ) {
 						children.eq( 4 ).find( "input" ).eq( 0 ).prop( "disabled",children.eq( 3 ).find( "input" ).val( )!=goal.target );
 
 					}
-					
+
 					i++;
 				}
 			}

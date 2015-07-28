@@ -14,11 +14,65 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
 </script>
 <script src="jquery.js" type="text/javascript"></script>
 <script src="kitstatus.js" type="text/javascript"></script>
-<h2><a href="/?scenario=kitting">Auftragsübersicht</a> &gt; <a href="/?scenario=kitting&order_id=<?php echo $current_order[ "id" ]; ?>">Auftrag  <?php echo $current_order[ "id" ]; ?></a> &gt; Kit <?php echo $current_kit[ "id" ]; ?></h2>
-<table>
-<thead>
-<tr><th>Objekttyp</th><th>Inventar</th><th>Packzahl Soll</th><th>Packzahl Ist</th><th>RFID Status</th></tr>
-</thead>
-<tbody id="kittable">
-</tbody>
-</table>
+
+<div class="pagetitle">
+  <div class="container">
+    <div class="title">
+			<a href="/?scenario=kitting">Auftragsübersicht</a> &gt; <a href="/?scenario=kitting&order_id=<?php echo $current_order[ "id" ]; ?>">Auftrag  <?php echo $current_order[ "id" ]; ?></a> &gt; Kit <?php echo $current_kit[ "id" ]; ?>
+    </div>
+    <div class="subtitle">
+      Auftragsfrist: xx.xx.xxxx
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+        <div class="pageprogress">
+          <div class="breadcrumb">
+            <ul>
+              <li class="active"><span>Stückliste</span></li>
+              <li><span>Vorkommisienieren</span></li>
+              <li><span>Kitting</span></li>
+            </ol>
+          </div>
+          <div class="next">
+            <a href="#">Vorkommisionierung</a>
+          </div>
+        </div>
+
+        <div class="pagecontent">
+          <table class="table table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>
+                  Materialbezeichnung
+                </th>
+                <th>
+                  P/N
+                </th>
+                <th>
+                  Gewicht
+                </th>
+								<th>
+                  Lagerplatz
+                </th>
+                <th>
+                  Inventar
+                </th>
+                <th>
+									Benötigte Menge
+                </th>
+                <th>
+                  Entnommene Menge
+                </th>
+                <th>
+                  RFID Status
+                </th>
+              </tr>
+            </thead>
+						<tbody id="kittable">
+						</tbody>
+          </table>
+        </div>
+      </div>
