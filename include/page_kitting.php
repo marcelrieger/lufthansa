@@ -1,22 +1,42 @@
-<h2>Auftragsübersicht</h2>
+<div class="pagetitle">
+  <div class="container">
+    <div class="title">
+      Auftragsübersicht
+    </div>
+  </div>
+</div>
 
-<table>
-<thead>
-<tr><th>ID</th><th>Anzahl an Kits</th></tr>
-</thead>
-<tbody>
-<?php
+<div class="container">
 
-$order_res = pg_query( "SELECT id,kit_count FROM orders ORDER BY id;" );
+  <div class="pagecontent">
 
-while( $order = pg_fetch_row( $order_res ) ) {
+    <div class="menucol">
 
-?>
-<tr><td><a href="/?scenario=kitting&order_id=<?php echo $order[ 0 ]; ?>"><?php echo $order[ 0 ]; ?></a></td><td><?php echo $order[ 1 ];?></td></tr>
-<?php
+      <?php
 
-}
+      $order_res = pg_query( "SELECT id,kit_count FROM orders ORDER BY id;" );
 
-?>
-</tbody>
-</table>
+      while( $order = pg_fetch_row( $order_res ) ) {
+
+      ?>
+
+      <div class="row">
+        <div class="col left">
+          <a href="/?scenario=kitting&order_id=<?php echo $order[ 0 ]; ?>" class="btn">Auftrag <?php echo $order[ 0 ]; ?></a>
+        </div>
+        <div class="col">
+          <div class="data">
+            <span class="trow"><b>Anzahl an Kits:</b> <?php echo $order[ 1 ];?></span>
+          </div>
+        </div>
+      </div>
+      <?php
+
+      }
+
+      ?>
+
+    </div>
+
+  </div>
+</div>

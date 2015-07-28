@@ -1,5 +1,12 @@
-<ul>
-<li><a href="/?scenario=kitting">Kitting</a></li>
-<li><a href="/?scenario=storage">Mannloses Lager</a></li>
-<li><a href="/?scenario=init">Initialisierung (Nur Administrator)</a></li>
-</ul>
+<div class="container">
+
+  <div class="pagecontent">
+
+    <div class="menu">
+      <a href="/?scenario=kitting" class="menubtn">Kitting</a>
+      <a href="/?scenario=storage" class="menubtn">Mannloses Lager</a>
+      <a href="/?scenario=init" class="menubtn">Initialisierung (Nur Administrator)</a>
+    </div>
+
+  </div>
+</div>
