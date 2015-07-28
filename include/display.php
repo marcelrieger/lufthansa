@@ -28,18 +28,20 @@
   </div>
 </div>
 
-<?php foreach( $messages as $message ) {
-
-?>
-	<p class="message" style="border: 2px solid <?php echo $message[ 1 ]; ?>; background-color: <?php echo $message[ 0 ]; ?>; color: <?php echo $message[ 1 ]; ?>">
-		<b><?php echo $message[ 2 ]; ?></b>
-	</p>
-<?php
-}
-$messages = array( ); ?>
-
-
 		<div class="page">
+
+      <?php if (count($messages)>0) { ?>
+      <div class="container">
+
+
+      <?php foreach( $messages as $message ) { ?>
+        <div class="alert alert-<?php echo $message[ 0 ]; ?>" role="alert">
+          <a href="#" class="alert-link"><?php echo $message[ 1 ]; ?></a>
+        </div>
+      <?php } ?>
+      </div>
+      <?php }
+      $messages = array( ); ?>
 
 	      <?php
 				if( is_null( $role_id ) )

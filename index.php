@@ -75,7 +75,7 @@ if( !is_null( $role_id ) ) {
 	unset( $_SESSION[ "role_id" ] );
 } elseif( isset( $login_name ) ) {
 	// Failed login
-	$messages[ ]= array( "silver","red","Authentifikation gescheitert! Versuch wurde protokolliert." );
+	$messages[ ]= array( "danger","Authentifikation gescheitert! Versuch wurde protokolliert." );
 }
 
 if( !isset( $_GET[ "ajax" ] )&& count( $_POST )>0 && !is_null( $role_id ) ) {

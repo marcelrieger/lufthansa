@@ -31,7 +31,7 @@ function new_tr( goal ) {
 		else
 			rfid_field = "<input type=\"button\" disabled=\"disabled\" value=\"Label Zuweisung\" />";
 
-		tr_class = "prepared"
+		tr_class = ""
 	}
 	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
 
@@ -128,4 +128,3 @@ function sync_kits( ) {
 }
 
 $( init );
- 
