@@ -39,12 +39,14 @@ function new_tr( goal ) {
 		tr_class = ""
 	}
 
-
+	if (goal.pn === null) {
+		goal.pn = "";
+	}
 	goal.weight = writeNULL(goal.weight);
 	goal.location = writeNULL(goal.location);
 	//result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
 
-	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+""+"</td><td>"+goal.weight+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+goal.location+"</td><td>"+rfid_field+"</td></tr>" );
+	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.pn+"</td><td>"+goal.weight+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+goal.location+"</td><td>"+rfid_field+"</td></tr>" );
 
 	result.find( "input" ).click( function( e ) { $( e.target ).data( "requested",true ); } );
 
