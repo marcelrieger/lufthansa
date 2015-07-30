@@ -18,6 +18,7 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
 <div class="pagetitle">
   <div class="container">
     <div class="title">
+			<?php echo $current_order; ?>;
 			<a href="/?scenario=kitting">Auftragsübersicht</a> &gt; <a href="/?scenario=kitting&order_id=<?php echo $current_order[ "id" ]; ?>">Auftrag  <?php echo $current_order[ "id" ]; ?></a> &gt; Kit <?php echo ($current_kit[ "id" ]+1); ?>
     </div>
     <div class="subtitle">
