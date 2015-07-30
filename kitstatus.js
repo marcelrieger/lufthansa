@@ -90,18 +90,18 @@ function sync_result_funcfac( ) {
 						children = tr.children( );
 
 						children.eq( 0 ).children( ).eq( 1 ).text( goal.description );
-						children.eq( 1 ).text( goal.inventory );
-						children.eq( 2 ).text( goal.target );
-						if( children.eq( 3 ).find( "input" ).val( )!=goal.count ) {
-							var is = parseInt( children.eq( 3 ).find( "input" ).val( ) );
+						children.eq( 3 ).text( goal.inventory );
+						children.eq( 4 ).text( goal.target );
+						if( children.eq( 5 ).find( "input" ).val( )!=goal.count ) {
+							var is = parseInt( children.eq( 5 ).find( "input" ).val( ) );
 							var should = parseInt( goal.count );
 							var has = parseInt( goal.inventory );
 
 							if( ( is-should )>has ) {
-								children.eq( 3 ).find( "input" ).val( should );
+								children.eq( 5 ).find( "input" ).val( should );
 							}
 						}
-						children.eq( 4 ).find( "input" ).eq( 0 ).prop( "disabled",children.eq( 3 ).find( "input" ).val( )!=goal.target );
+						children.eq( 7 ).find( "input" ).eq( 0 ).prop( "disabled",children.eq( 5 ).find( "input" ).val( )!=goal.target );
 
 					}
 
