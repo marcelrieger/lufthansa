@@ -99,6 +99,8 @@ function sync_result_funcfac( ) {
 						children = tr.children( );
 
 						children.eq( 0 ).children( ).eq( 1 ).text( goal.description );
+						children.eq( 1 ).text( writeNULL(goal.pn) );
+						children.eq( 2 ).text( writeNULL(goal.weight) );
 						children.eq( 3 ).text( goal.inventory );
 						children.eq( 4 ).text( goal.target );
 						if( children.eq( 5 ).find( "input" ).val( )!=goal.count ) {
