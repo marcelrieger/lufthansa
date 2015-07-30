@@ -163,17 +163,29 @@ div {
           span {
             color: @blue;
             background: @yellow!important;
-            animation: blink 1s alternate infinite;
-            -webkit-animation: blink 1s alternate infinite;
-            -moz-animation: blink 1s alternate infinite;
-            -o-animation: blink 1s alternate infinite;
             font-weight: bold;
             &:after {
               border-left: 20px solid @yellow;
-              animation: blinkbleft 1s alternate infinite;
-              -webkit-animation: blinkbleft 1s alternate infinite;
-              -moz-animation: blinkbleft 1s alternate infinite;
-              -o-animation: blinkbleft 1s alternate infinite;
+            }
+          }
+        }
+
+        &.animate {
+
+          span {
+            color: @blue;
+            background: @yellow!important;
+            font-weight: bold;
+            animation: blink 2s alternate infinite;
+            -webkit-animation: blink 2s alternate infinite;
+            -moz-animation: blink 2s alternate infinite;
+            -o-animation: blink 2s alternate infinite;
+            &:after {
+              border-left: 20px solid @yellow;
+              animation: blinkbleft 2s alternate infinite;
+              -webkit-animation: blinkbleft 2s alternate infinite;
+              -moz-animation: blinkbleft 2s alternate infinite;
+              -o-animation: blinkbleft 2s alternate infinite;
             }
           }
         }
