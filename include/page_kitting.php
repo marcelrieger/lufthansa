@@ -26,7 +26,7 @@
         </div>
         <div class="col">
           <div class="data">
-            <span class="trow"><b>Anzahl an Kits:</b> <?php echo $order[ 1 ];?></span>
+            <span class="trow"><b>Anzahl an Kits:</b> <?php echo $order[ 2 ];?></span>
             <?php
 
         		if (isset($order[2])) { ?>
