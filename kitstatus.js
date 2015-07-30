@@ -144,25 +144,18 @@ function sync_kits( ) {
 
 		if (status3) {
 			console.log("STATUS3");
-			$( ".breadcrumb" ).children().children().eq(0).removeClass("animate");
-			$( ".breadcrumb" ).children().children().eq(1).addClass("active").removeClass("animate");
-			$( ".breadcrumb" ).children().children().eq(2).addClass("active").addClass("animate");
+			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+			$( ".breadcrumb" ).children().children().eq(2).addClass("active");
 		} else {
-			console.log("STATUS3OFF");
-			$( ".breadcrumb" ).children().children().eq(2).removeClass("animate").removeClass("active");
 			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
-			$( ".breadcrumb" ).children().children().eq(0).addClass("animate");
+			$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
 		}
 
-		if (!status3 && status2) {
-			console.log("STATUS2")
-			$( ".breadcrumb" ).children().children().eq(0).removeClass("animate");
-			$( ".breadcrumb" ).children().children().eq(1).addClass("active").addClass("animate");
-			$( ".breadcrumb" ).children().children().eq(2).removeClass("animate").removeClass("active");
+		if (status2) {
+			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+			console.log("STATUS2");
 		} else {
-			console.log("STATUS2OFF")
-			$( ".breadcrumb" ).children().children().eq(1).removeClass("animate").removeClass("active");
-			$( ".breadcrumb" ).children().children().eq(0).addClass("animate");
+			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
 		}
 
 
