@@ -155,6 +155,7 @@ function sync_kits( ) {
 		if (status2) {
 			$( ".breadcrumb" ).children().children().eq(0).removeClass("animate");
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active").addClass("animate");
+			$( ".breadcrumb" ).children().children().eq(2).removeClass("animate").removeClass("active");
 		} else {
 			$( ".breadcrumb" ).children().children().eq(1).removeClass("animate").removeClass("active");
 			$( ".breadcrumb" ).children().children().eq(0).addClass("animate");
