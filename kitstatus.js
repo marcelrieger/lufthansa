@@ -120,8 +120,8 @@ function sync_kits( ) {
 	for( var i = 0; i<trs.length; i++ ) {
 		request_obj = {
 			"id":parseInt( trs.eq( i ).children( ).eq( 0 ).children( ).eq( 0 ).text( ) ),
-			"value":parseInt( trs.eq( i ).children( ).eq( 3 ).find( "input" ).val( ) ),
-			"tag":trs.eq( i ).children( ).eq( 4 ).find( "input" ).data( "requested" )==true
+			"value":parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) ),
+			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 	}
