@@ -145,16 +145,11 @@ function sync_kits( ) {
 		if (status2) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			console.log("STATUS2");
-		} else {
-			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
-		}
+		} 
 		if (status3) {
 			console.log("STATUS3");
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			$( ".breadcrumb" ).children().children().eq(2).addClass("active");
-		} else {
-			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
-			$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
 		}
 
 
