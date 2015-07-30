@@ -137,7 +137,7 @@ function sync_kits( ) {
 			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true
 		};
 		request_array.push( JSON.stringify( request_obj ) );
-		console.log($(trs.eq( i )).attr("class")+"||"+trs.className);
+		console.log($(trs.eq( i )).attr("class")+"||"+trs.eq(i).className);
 	}
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
