@@ -12,9 +12,9 @@ function tr_id( tr ) {
 	return quo.find( "span.id" ).text( );
 }
 
-function writeNULL ( obj) {
-	return (obj == NULL) ? obj : "";
-}
+// function writeNULL ( obj) {
+// 	return (obj == NULL) ? obj : "";
+// }
 
 
 function new_tr( goal ) {
@@ -39,11 +39,12 @@ function new_tr( goal ) {
 		tr_class = ""
 	}
 
-	goal.pn = writeNULL(goal.pn);
-	goal.weight = writeNULL(goal.weight);
-	goal.location = writeNULL(goal.location);
+	// goal.pn = writeNULL(goal.pn);
+	// goal.weight = writeNULL(goal.weight);
+	// goal.location = writeNULL(goal.location);
 	//result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
-
+	console.log(goal);
+	console.log(goal.pn);
 	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.pn+"</td><td>"+goal.weight+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+goal.location+"</td><td>"+rfid_field+"</td></tr>" );
 
 	result.find( "input" ).click( function( e ) { $( e.target ).data( "requested",true ); } );
