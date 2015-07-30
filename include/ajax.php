@@ -16,18 +16,24 @@ if( is_null( $current_order )|| is_null( $current_kit ) ) {
 	if( isset( $_POST[ "requests" ] )&& is_array( $requests = $_POST[ "requests" ] ) ) {
 		foreach( $requests as $request ) {
 			if( !is_null( $json = json_decode( $request ) )&& is_object( $json )&& isset( $json->id )&& isset( $json->value )&& isset( $json->tag ) ) {
-				$value = (int)( $json->value );
-				$id = (int)( $json->id );
-				$tag = $json->tag==true;
 
-				// TODO: Make atomic/lock
-				$take_res = pg_query( "UPDATE classes SET inventory=inventory-($value-groups.count) FROM groups WHERE classes.id=groups.class_id AND groups.order_id={$current_order[ "id" ]} AND groups.kit_id={$current_kit[ "id" ]} AND groups.id=$id AND classes.inventory>=($value-groups.count);" );
+				if ( (int)( $json->status ) < 0 ) {
+					$value = (int)( $json->value );
+					$id = (int)( $json->id );
+					$tag = $json->tag==true;
 
-				if( pg_affected_rows( $take_res )>0 )
-					pg_query( "UPDATE groups SET count=$value WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} AND id=$id;" );
+					// TODO: Make atomic/lock
+					$take_res = pg_query( "UPDATE classes SET inventory=inventory-($value-groups.count) FROM groups WHERE classes.id=groups.class_id AND groups.order_id={$current_order[ "id" ]} AND groups.kit_id={$current_kit[ "id" ]} AND groups.id=$id AND classes.inventory>=($value-groups.count);" );
 
-				if( $tag )
-					pg_query( "UPDATE groups SET tag_id=".pgvalue( create_tag( ) )." WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} AND id=$id AND count=target;" );
+					if( pg_affected_rows( $take_res )>0 )
+						pg_query( "UPDATE groups SET count=$value WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} AND id=$id;" );
+
+					if( $tag )
+						pg_query( "UPDATE groups SET tag_id=".pgvalue( create_tag( ) )." WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} AND id=$id AND count=target;" );
+				} else {
+					pg_query( "UPDATE kits SET status=".((int)( $json->status ))." WHERE order_id={$current_order[ "id" ]} AND id={$current_kit[ "id" ]};" );
+				}
+
 			}
 		}
 	}

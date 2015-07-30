@@ -40,7 +40,7 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
           <div class="breadcrumb">
             <ul>
               <li class="active"><span>Stückliste</span></li>
-              <li><span>Vorkommisienieren</span></li>
+              <li><span>Vorkommissienieren</span></li>
               <li><span>Kitting</span></li>
             </ol>
           </div>

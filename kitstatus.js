@@ -129,12 +129,14 @@ function sync_kits( ) {
 
 	var status2 = true;
 	var status3 = true;
+	var statusf = 0;
 
 	for( var i = 0; i<trs.length; i++ ) {
 		request_obj = {
 			"id":parseInt( trs.eq( i ).children( ).eq( 0 ).children( ).eq( 0 ).text( ) ),
 			"value":parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) ),
-			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true
+			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true,
+			"status": -1
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 
@@ -155,6 +157,20 @@ function sync_kits( ) {
 		} else {
 			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
 		}
+
+		if (status3) {
+			statusf = 2;
+		} else if (status2) {
+			statusf = 1;
+		}
+
+		request_obj = {
+			"id":"",
+			"value":"",
+			"tag":"",
+			"status": statusf
+		};
+		request_array.push( JSON.stringify( request_obj ) );
 
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
