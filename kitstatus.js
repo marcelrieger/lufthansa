@@ -138,7 +138,7 @@ function sync_kits( ) {
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 
-		if ($(trs.eq( i )).attr("class")!="ready") {status2=false;}
+		if (($(trs.eq( i )).attr("class")!="ready")||($(trs.eq( i )).attr("class")!="final")) {status2=false;}
 		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
 	}
 
@@ -152,7 +152,7 @@ function sync_kits( ) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			$( ".breadcrumb" ).children().children().eq(2).addClass("active");
 		}
-	
+
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
 }
