@@ -12,16 +12,11 @@ function tr_id( tr ) {
 	return quo.find( "span.id" ).text( );
 }
 
-function writeNULL ( obj) {
-	return (obj === null) ? obj : "";
-}
-
 function writeHTML ( obj ) {
 	if (obj === null)
 		return "";
 	return obj;
 }
-
 
 function new_tr( goal ) {
 	var count_field;
@@ -45,11 +40,9 @@ function new_tr( goal ) {
 		tr_class = ""
 	}
 
-	goal.weight = writeNULL(goal.weight);
-	goal.location = writeNULL(goal.location);
 	//result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
 
-	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+goal.location+"</td><td>"+rfid_field+"</td></tr>" );
+	result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+writeHTML(goal.location)+"</td><td>"+rfid_field+"</td></tr>" );
 
 	result.find( "input" ).click( function( e ) { $( e.target ).data( "requested",true ); } );
 
@@ -104,9 +97,9 @@ function sync_result_funcfac( ) {
 						children = tr.children( );
 
 						children.eq( 0 ).children( ).eq( 1 ).text( goal.description );
-						children.eq( 1 ).text( writeNULL(goal.pn) );
-						children.eq( 2 ).text( writeNULL(goal.weight) );
-						children.eq( 6 ).text( writeNULL(goal.location) );
+						children.eq( 1 ).text( writeHTML(goal.pn) );
+						children.eq( 2 ).text( writeHTML(goal.weight) );
+						children.eq( 6 ).text( writeHTML(goal.location) );
 						children.eq( 3 ).text( goal.inventory );
 						children.eq( 4 ).text( goal.target );
 						if( children.eq( 5 ).find( "input" ).val( )!=goal.count ) {
