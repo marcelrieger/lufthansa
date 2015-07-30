@@ -140,8 +140,8 @@ function sync_kits( ) {
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 
-		if (($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
-		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
+		if ((trs.length>0)&&($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
+		if ((trs.length>0)&&$(trs.eq( i )).attr("class")!="final") {status3=false;}
 	}
 
 		if (status3) {
