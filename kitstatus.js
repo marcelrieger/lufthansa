@@ -143,8 +143,10 @@ function sync_kits( ) {
 	}
 
 	if (i==trs.length-1) {
+		console.log("HEY");
 		if (status2) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+			console.log("STATUS2");
 		}
 		if (status3) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
