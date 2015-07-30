@@ -18,14 +18,16 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
 <div class="pagetitle">
   <div class="container">
     <div class="title">
-			<a href="/?scenario=kitting">Auftragsübersicht</a> &gt; <a href="/?scenario=kitting&order_id=<?php echo $current_order[ "id" ]; ?>">Auftrag  <?php echo $current_order[ "deadline" ]; ?></a> &gt; Kit <?php echo ($current_kit[ "id" ]+1); ?>
+			<a href="/?scenario=kitting">Auftragsübersicht</a> &gt; <a href="/?scenario=kitting&order_id=<?php echo $current_order[ "id" ]; ?>">Auftrag  <?php echo $current_order[ "id" ]; ?></a> &gt; Kit <?php echo ($current_kit[ "id" ]+1); ?>
     </div>
 		<?php
 
 		if (isset($current_order["deadline"])) { ?>
 
 			<div class="subtitle">
-	      Auftragsfrist: <?php echo $current_order["deadline"]; ?>
+	      Auftragsfrist: <?php
+				$date = date("d-m-Y", strtotime($current_order["deadline"]));
+				echo $date; ?>
 	    </div>
 
 		<?php } ?>
