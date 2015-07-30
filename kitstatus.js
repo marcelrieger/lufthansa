@@ -138,12 +138,10 @@ function sync_kits( ) {
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 
-		if (($(trs.eq( i )).attr("class")!="ready")||($(trs.eq( i )).attr("class")!="final")) {status2=false;}
+		if (($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
 		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
 	}
 
-
-		console.log("HEY");
 		if (status2) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			console.log("STATUS2");
