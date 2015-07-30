@@ -27,7 +27,17 @@
         <div class="col">
           <div class="data">
             <span class="trow"><b>Anzahl an Kits:</b> <?php echo $order[ 1 ];?></span>
-            <span class="trow"><b>Auftragsfrist:</b> xx.xx.xxxx</span>
+            <?php
+
+        		if (isset($order[2])) { ?>
+
+        			<span class="trow"><b>Auftragsfrist:</b>
+        	      <?php
+        				$date = date("d-m-Y", strtotime($order[2]));
+        				echo $date; ?>
+              </span>
+
+        		<?php } ?>
           </div>
         </div>
       </div>

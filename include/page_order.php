@@ -3,9 +3,17 @@
     <div class="title">
       <a href="/?scenario=kitting">Auftragsübersicht</a> &gt; Auftrag  <?php echo $current_order[ "id" ]; ?>
     </div>
-    <div class="subtitle">
-      Auftragsfrist: xx.xx.xxxx
-    </div>
+    <?php
+
+		if (isset($current_order["deadline"])) { ?>
+
+			<div class="subtitle">
+	      Auftragsfrist: <?php
+				$date = date("d-m-Y", strtotime($current_order["deadline"]));
+				echo $date; ?>
+	    </div>
+
+		<?php } ?>
   </div>
 </div>
 
