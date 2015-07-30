@@ -154,7 +154,7 @@ function sync_kits( ) {
 			$( ".breadcrumb" ).children().children().eq(0).addClass("animate");
 		}
 
-		if (status2) {
+		if (!status3 && status2) {
 			console.log("STATUS2")
 			$( ".breadcrumb" ).children().children().eq(0).removeClass("animate");
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active").addClass("animate");
