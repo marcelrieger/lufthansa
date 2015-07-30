@@ -140,11 +140,11 @@ function sync_kits( ) {
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 
-		if ((trs.length>0)&&($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
-		if ((trs.length>0)&&$(trs.eq( i )).attr("class")!="final") {status3=false;}
+		if (($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
+		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
 	}
 
-		if (status3) {
+		if ((trs.length>0)&&status3) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			$( ".breadcrumb" ).children().children().eq(2).addClass("active");
 		} else {
@@ -152,7 +152,7 @@ function sync_kits( ) {
 			$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
 		}
 
-		if (status2) {
+		if ((trs.length>0)&&status2) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 		} else {
 			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
