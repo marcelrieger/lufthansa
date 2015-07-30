@@ -127,6 +127,9 @@ function sync_kits( ) {
 
 	var trs = $( "#kittable" ).children( );
 
+	var status2 = true;
+	var status3 = true;
+
 	for( var i = 0; i<trs.length; i++ ) {
 		request_obj = {
 			"id":parseInt( trs.eq( i ).children( ).eq( 0 ).children( ).eq( 0 ).text( ) ),
@@ -134,7 +137,7 @@ function sync_kits( ) {
 			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true
 		};
 		request_array.push( JSON.stringify( request_obj ) );
-		console.log(i);
+		console.log(tr.className);
 	}
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
