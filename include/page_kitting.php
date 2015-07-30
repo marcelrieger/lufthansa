@@ -14,7 +14,7 @@
 
       <?php
 
-      $order_res = pg_query( "SELECT id,kit_count FROM orders ORDER BY id;" );
+      $order_res = pg_query( "SELECT id,kit_count,deadline FROM orders ORDER BY id;" );
 
       while( $order = pg_fetch_row( $order_res ) ) {
 
@@ -26,7 +26,7 @@
         </div>
         <div class="col">
           <div class="data">
-            <span class="trow"><b>Anzahl an Kits:</b> <?php echo $order[ 2 ];?></span>
+            <span class="trow"><b>Anzahl an Kits:</b> <?php echo $order[ 1 ];?></span>
             <?php
 
         		if (isset($order[2])) { ?>
