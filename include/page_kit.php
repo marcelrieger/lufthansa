@@ -22,10 +22,10 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
     </div>
 		<?php
 
-		if (isset($current_order[2])) { ?>
+		if (isset($current_order["deadline"])) { ?>
 
 			<div class="subtitle">
-	      Auftragsfrist: <?php echo $current_order[2]; ?>
+	      Auftragsfrist: <?php echo $current_order["deadline"]; ?>
 	    </div>
 
 		<?php } ?>
