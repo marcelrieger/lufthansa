@@ -142,7 +142,7 @@ function sync_kits( ) {
 		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
 	}
 
-	if (i==trs.length-1) {
+
 		console.log("HEY");
 		if (status2) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
@@ -152,7 +152,7 @@ function sync_kits( ) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			$( ".breadcrumb" ).children().children().eq(2).addClass("active");
 		}
-	}
+	
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
 }
