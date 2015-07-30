@@ -137,7 +137,17 @@ function sync_kits( ) {
 			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true
 		};
 		request_array.push( JSON.stringify( request_obj ) );
-		console.log($(trs.eq( i )).attr("class")+"||"+trs.eq(i).className);
+
+		if ($(trs.eq( i )).attr("class")!="ready") {status2=false;}
+		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
+	}
+
+	if (status2) {
+		$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+	}
+	if (status3) {
+		$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+		$( ".breadcrumb" ).children().children().eq(2).addClass("active");
 	}
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
