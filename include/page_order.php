@@ -25,7 +25,7 @@
 
       <?php
 
-      $kits_res = pg_query( "SELECT kits.id id,users.username username FROM kits LEFT JOIN users ON kits.user_id=users.id WHERE kits.order_id={$current_order[ "id" ]} ORDER BY id;" );
+      $kits_res = pg_query( "SELECT kits.id id, kits.status status,users.username username FROM kits LEFT JOIN users ON kits.user_id=users.id WHERE kits.order_id={$current_order[ "id" ]} ORDER BY id;" );
 
       while( $kit = pg_fetch_assoc( $kits_res ) ) {
 
@@ -38,13 +38,14 @@
         <div class="col">
           <div class="data">
             <span class="trow"><b>Status:</b> <?php
-
-              print_r($kit); ?>
-
-              in Bearbeitung
-
-
-
+              $stts;
+              if ($kit[ "status" ]==1)
+              $stts = "Vorkommissienieren";
+              else if ($kit[ "status" ]==2)
+              $stts = "Kitting";
+              else
+              $stts = "in Bearbeitung";
+              echo $stts;?>
             </span>
             <?php if (isset($kit[ "username" ])):?><span class="trow"><b>Mitarbeiter:</b> <?php echo $kit[ "username" ];endif;?></span>
           </div>
