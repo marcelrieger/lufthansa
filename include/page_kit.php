@@ -38,7 +38,7 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
           </div>
         </div>
 
-        <div class="pagecontent">
+        <div class="pagecontent table-responsive">
           <table class="table table-striped table-hover table-condensed">
             <thead>
               <tr>
