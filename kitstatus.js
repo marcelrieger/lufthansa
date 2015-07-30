@@ -144,34 +144,37 @@ function sync_kits( ) {
 		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
 	}
 
-		if ((trs.length>0)&&status3) {
-			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
-			$( ".breadcrumb" ).children().children().eq(2).addClass("active");
-		} else {
-			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
-			$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
+		if ((trs.length>0)) {
+
+			if (status3) {
+				$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+				$( ".breadcrumb" ).children().children().eq(2).addClass("active");
+			} else {
+				$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
+				$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
+			}
+
+			if (status2) {
+				$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+			} else {
+				$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
+			}
+
+			if (status3) {
+				statusf = 2;
+			} else if (status2) {
+				statusf = 1;
+			}
+
+			request_obj = {
+				"id":"",
+				"value":"",
+				"tag":"",
+				"status": statusf
+			};
+			request_array.push( JSON.stringify( request_obj ) );
+
 		}
-
-		if ((trs.length>0)&&status2) {
-			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
-		} else {
-			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
-		}
-
-		if (status3) {
-			statusf = 2;
-		} else if (status2) {
-			statusf = 1;
-		}
-
-		request_obj = {
-			"id":"",
-			"value":"",
-			"tag":"",
-			"status": statusf
-		};
-		request_array.push( JSON.stringify( request_obj ) );
-
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
 }
