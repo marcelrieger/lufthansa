@@ -1,13 +1,9 @@
 tr.ready td {
-	background-color: blue;
+	background-color: #B7E4FF;
 }
 
 tr.final td {
-	background-color: green;
-}
-
-tr.prepared td {
-	background-color: gray;
+	background-color: #6CFF6C;
 }
 
 span.id {
