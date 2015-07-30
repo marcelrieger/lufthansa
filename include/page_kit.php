@@ -41,7 +41,7 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
             <ul>
               <li class="active"><span>Stückliste</span></li>
               <li<?php if($current_kit[ "status" ]>0) echo " class=\"active\""; ?>><span>Vorkommissienieren</span></li>
-              <li<?php if($current_kit[ "status" ]>0) echo " class=\"active\""; ?>><span>Kitting</span></li>
+              <li<?php if($current_kit[ "status" ]>1) echo " class=\"active\""; ?>><span>Kitting</span></li>
             </ol>
           </div>
         </div>
