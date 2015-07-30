@@ -148,15 +148,15 @@ function sync_kits( ) {
 
 			if (status3) {
 				statusf = 2;
-				$( ".breadcrumb" ).children().children().eq(1).addClass("active");
+				$( ".breadcrumb" ).children().children().eq(1).addClass("active").removeClass("animate");
 				$( ".breadcrumb" ).children().children().eq(2).addClass("active").addClass("animate");
 			} else if (status2) {
 				statusf = 1;
-				$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
+				$( ".breadcrumb" ).children().children().eq(2).removeClass("active").removeClass("animate");
 				$( ".breadcrumb" ).children().children().eq(1).addClass("active").addClass("animate");
 			} else {
-				$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
-				$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
+				$( ".breadcrumb" ).children().children().eq(2).removeClass("active").removeClass("animate");
+				$( ".breadcrumb" ).children().children().eq(1).removeClass("active").removeClass("animate");
 			}
 
 			request_obj = {
