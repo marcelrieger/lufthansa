@@ -26,13 +26,13 @@ if( is_null( $current_order )|| is_null( $current_kit ) ) {
 				if( pg_affected_rows( $take_res )>0 )
 					pg_query( "UPDATE groups SET count=$value WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} AND id=$id;" );
 
-				if( $tag ) 
+				if( $tag )
 					pg_query( "UPDATE groups SET tag_id=".pgvalue( create_tag( ) )." WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} AND id=$id AND count=target;" );
 			}
 		}
 	}
 
-	$stat_res = pg_query( "SELECT groups.id,classes.description,groups.count,groups.target,classes.inventory,groups.tag_id,groups.archived FROM groups LEFT JOIN classes ON groups.class_id=classes.id WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} ORDER BY groups.id;" );
+	$stat_res = pg_query( "SELECT groups.id,classes.description,classes.pn,classes.gewicht,classes.lagerort,groups.count,groups.target,classes.inventory,groups.tag_id,groups.archived FROM groups LEFT JOIN classes ON groups.class_id=classes.id WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} ORDER BY groups.id;" );
 
 	$result = array( );
 
