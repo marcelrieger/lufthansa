@@ -36,9 +36,6 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
               <li><span>Kitting</span></li>
             </ol>
           </div>
-          <div class="next">
-            <a href="#">Vorkommisionierung</a>
-          </div>
         </div>
 
         <div class="pagecontent">
