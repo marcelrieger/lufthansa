@@ -25,7 +25,7 @@
 
       <div class="row">
         <div class="col left">
-          <a href="/?scenario=kitting&order_id=<?php echo $current_order[ "id" ]; ?>&kit_id=<?php echo $kit[ "id" ]; ?>" class="btn">Kit <?php echo $kit[ "id" ]; ?></a>
+          <a href="/?scenario=kitting&order_id=<?php echo $current_order[ "id" ]; ?>&kit_id=<?php echo $kit[ "id" ]; ?>" class="btn">Kit <?php echo ($kit[ "id" ]+1); ?></a>
         </div>
         <div class="col">
           <div class="data">
