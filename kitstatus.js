@@ -147,6 +147,7 @@ function sync_kits( ) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			$( ".breadcrumb" ).children().children().eq(2).addClass("active");
 		} else {
+			console.log("STATUS3OFF");
 			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
 			$( ".breadcrumb" ).children().children().eq(2).removeClass("active");
 		}
@@ -155,6 +156,7 @@ function sync_kits( ) {
 			$( ".breadcrumb" ).children().children().eq(1).addClass("active");
 			console.log("STATUS2");
 		} else {
+			console.log("STATUS2OFF");
 			$( ".breadcrumb" ).children().children().eq(1).removeClass("active");
 		}
 
