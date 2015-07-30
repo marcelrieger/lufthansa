@@ -13,7 +13,7 @@ function tr_id( tr ) {
 }
 
 function writeNULL ( obj) {
-	return (obj == NULL)) ? obj : "";
+	return (obj == NULL) ? obj : "";
 }
 
 
