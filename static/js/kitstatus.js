@@ -182,7 +182,7 @@ function printcertificate(doc) {
 }
 
 function timer() {
-	var i = 4;
+	var i = 3;
 	var t = setInterval(function(){
 						$(".timer").text("("+i+")");
 						i--;
@@ -191,7 +191,7 @@ function timer() {
 	setTimeout(function(){
 		clearInterval(t);
 		$(".timer").parent().click();
-	},3000);
+	},4000);
 
 }
 $(document).on('click', '.kitdocumentation', function () {
