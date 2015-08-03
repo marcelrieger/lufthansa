@@ -74,6 +74,8 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
                 <th>
                   RFID Status
                 </th>
+								<th>
+								</th>
               </tr>
             </thead>
 						<tbody id="kittable">
