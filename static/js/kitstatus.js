@@ -188,10 +188,10 @@ function timer() {
 						i--;
 					}, 1000);
 
-	if (i<1) {
+	setTimeout(function(){
 		clearInterval(t);
 		$(".timer").parent().click();
-	}
+	},3000);
 
 }
 $(document).on('click', '.kitdocumentation', function () {
