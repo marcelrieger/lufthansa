@@ -6,17 +6,17 @@ function create_tag( ) {
 	return $free[ 0 ];
 }
 
-if( is_null( $current_order ) || is_null( $current_kit ) ) {
+if ($_GET["print"]="1" && isset($_GET["material"])) {
+	//$cert = "cert/"+$_GET["material"];
+	$cert = "cert/"+"cert"+".txt";
+	exec("print.py "+$cert);
+	echo json_encode( exec("print.py "+$cert) );
+} else if( is_null( $current_order ) || is_null( $current_kit ) ) {
 
 ?>
 { "err":"Keine gültiges Kit gewählt" }
 <?php
 
-} else if ($_GET["print"]="1" && isset($_GET["material"])) {
-	//$cert = "cert/"+$_GET["material"];
-	$cert = "cert/"+"cert"+".txt";
-	exec("print.py "+$cert);
-	echo json_encode( exec("print.py "+$cert) );
 } else {
 	if( isset( $_POST[ "requests" ] )&& is_array( $requests = $_POST[ "requests" ] ) ) {
 		foreach( $requests as $request ) {
