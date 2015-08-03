@@ -182,8 +182,6 @@ function printcertificate( ) {
 
 $(document).on('click', '.printcertificate', function () {
 	$(this).next().fadeIn("fast");
-	$(".printdone").css("opacity","1");
-	console.log("CLICKED");
 	printcertificate();
 });
 
