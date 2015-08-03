@@ -183,15 +183,15 @@ function printcertificate(doc) {
 
 function timer() {
 	var i = 4;
+	var t = setInterval(function(){
+						$(".timer").text("("+i+")");
+						i--;
+					}, 1000);
 
-	while (i>0) {
-		setInterval(function(){
-		$(".timer").text("("+i+")");
-		}, 1000);
-		i--;
+	if (i<1) {
+		clearInterval(t);
+		$(".timer").parent().click();
 	}
-
-	$(".timer").parent().click();
 
 }
 $(document).on('click', '.kitdocumentation', function () {
