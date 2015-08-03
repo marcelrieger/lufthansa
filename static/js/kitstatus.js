@@ -194,7 +194,9 @@ function timer() {
 	$(".timer").parent().click();
 
 }
-
+$(document).on('click', '.kitdocumentation', function () {
+	alert("GOGO")
+});
 
 
 $(document).on('click', '.printcertificate', function () {
