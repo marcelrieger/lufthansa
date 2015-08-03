@@ -186,7 +186,9 @@ $(document).on('click', '.printcertificate', function () {
 });
 
 $(document).on('click', '.close', function () {
-	$(this).parent().fadeOut("fast").remove();
+	$(this).parent().fadeOut("fast", function() {
+		$(this).remove();
+	});
 	//printcertificate();
 });
 
