@@ -181,8 +181,8 @@ function printcertificate( ) {
 }
 
 $(document).on('click', '.printcertificate', function () {
-	$(".message").append("Das Zertifikat wurde ausgedrückt");
-	printcertificate();
+	$(".message").append("<div class=\"alert alert-success\" role=\"alert\"><a href=\"#\" class=\"alert-link\"><?php echo $message[ 1 ]; ?></a></div>");
+	//printcertificate();
 });
 
 $( init );
