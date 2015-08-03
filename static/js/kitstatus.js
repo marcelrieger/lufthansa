@@ -195,7 +195,9 @@ function timer() {
 
 }
 
-
+$(document).on('click', '.kitdocumentation', function () {
+	timer();
+});
 
 $(document).on('click', '.printcertificate', function () {
 	$(".message").html("<div class=\"alert alert-info\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Das Zertifikat wurde ausgedruckt.</div>").hide().fadeIn("fast");
@@ -212,7 +214,5 @@ $(document).on('click', '.close', function () {
 		$(this).remove();
 	});
 });
-
-setInterval(function(){ timer() }, 1000);
 
 $( init );
