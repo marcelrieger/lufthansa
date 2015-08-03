@@ -1,5 +1,5 @@
 <?php
-$printer = "\\\\Pserver.php.net\\printername");
+$printer = "\\\\Pserver.php.net\\printername";
 if($ph = printer_open($printer))
 {
    // Get file contents
