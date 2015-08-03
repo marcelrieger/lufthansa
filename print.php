@@ -1,16 +1,21 @@
 <?php
-$printer = "\\\\Pserver.php.net\\printername";
-if($ph = printer_open($printer))
-{
-   // Get file contents
-   $fh = fopen("filename.ext", "rb");
-   $content = fread($fh, filesize("filename.ext"));
-   fclose($fh);
+// connect and login to FTP server
+$ftp_server = "137.226.150.198";
+$ftp_conn = ftp_connect($ftp_server) or die("Could not connect to $ftp_server");
+$login = ftp_login($ftp_conn, $ftp_username, $ftp_userpass);
 
-   // Set print mode to RAW and send PDF to printer
-   printer_set_option($ph, PRINTER_MODE, "RAW");
-   printer_write($ph, $content);
-   printer_close($ph);
-}
-else "Couldn't connect...";
+$file = "test.txt";
+
+// upload file
+if (ftp_put($ftp_conn, "serverfile.txt", $file, FTP_ASCII))
+  {
+  echo "Successfully uploaded $file.";
+  }
+else
+  {
+  echo "Error uploading $file.";
+  }
+
+// close connection
+ftp_close($ftp_conn);
 ?>
