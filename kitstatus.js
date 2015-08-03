@@ -177,13 +177,18 @@ function sync_kits( ) {
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
 }
 
-function printcertificate( ) {
-	$.post( "/?ajax=1&scenario=kitting&print=1&material=0",{ "requests[]": [ ] } );
+function printcertificate(doc) {
+	$.post( "/?ajax=1&scenario=kitting&print=1&material="+doc,{ "requests[]": [ ] } );
 }
 
 $(document).on('click', '.printcertificate', function () {
 	$(".message").html("<div class=\"alert alert-info\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Das Zertifikat wurde ausgedruckt.</div>").hide().fadeIn("fast");
-	//printcertificate();
+	printcertificate(1);
+});
+
+$(document).on('click', '.kitseal', function () {
+	$(".message").html("<div class=\"alert alert-success\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Vollständigkeitssiegel wurde ausgedruckt.</div>").hide().fadeIn("fast");
+	printcertificate(0);
 });
 
 $(document).on('click', '.close', function () {

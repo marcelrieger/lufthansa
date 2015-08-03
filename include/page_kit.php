@@ -46,8 +46,8 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
           </div>
 					<div class="next">
             <div class="btn-group" role="group" aria-label="Default button group">
-              <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Dokumentation</a>
-              <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Vollständigkeitssiegel</a>
+              <button type="button" class="btn btn-default kitdocumentation"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Dokumentation</button>
+              <button type="button" class="btn btn-default kitseal"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Vollständigkeitssiegel</button>
             </div>
           </div>
         </div>
