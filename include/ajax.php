@@ -11,7 +11,7 @@ if ($_GET["print"]="1" && isset($_GET["material"])) {
 	$cert = "cert/"+"cert"+".txt";
 	exec("print.py "+$cert);
 	//echo json_encode( "certificate printed successfully." );
-	echo json_encode( "whoami" );
+	echo json_encode( exec("whoami") );
 } else if( is_null( $current_order ) || is_null( $current_kit ) ) {
 
 ?>
