@@ -195,7 +195,7 @@ function timer() {
 
 }
 $(document).on('click', '.kitdocumentation', function () {
-	alert("GOGO")
+	timer();
 });
 
 
