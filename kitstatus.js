@@ -185,4 +185,9 @@ $(document).on('click', '.printcertificate', function () {
 	//printcertificate();
 });
 
+$(document).on('click', '.close', function () {
+	$(this).parent().fadeOut("fast").remove();
+	//printcertificate();
+});
+
 $( init );
