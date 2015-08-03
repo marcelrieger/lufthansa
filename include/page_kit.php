@@ -62,14 +62,13 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Vollständigkeits</h4>
+				        <h4 class="modal-title" id="myModalLabel">Vollständigkeitsdokumentation</h4>
 				      </div>
 				      <div class="modal-body">
-				        ...
+								<img class="center" src="static/img/paket.jpg" alt="Vollständigkeitsdokumentation" class="img-thumbnail">
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				        <button type="button" class="btn btn-primary">Save changes</button>
+				        <button type="button" class="btn btn-default" data-dismiss="modal">schließen</button>
 				      </div>
 				    </div>
 				  </div>
