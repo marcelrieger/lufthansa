@@ -189,6 +189,7 @@ function timer() {
 					}, 1000);
 
 	setTimeout(function(){
+		$(".timer").text("");
 		clearInterval(t);
 		$(".timer").parent().click();
 	},4000);
