@@ -188,6 +188,7 @@ function timer() {
 		setInterval(function(){
 		$(".timer").text("("+i+")");
 		}, 1000);
+		i--;
 	}
 
 	$(".timer").parent().click();
