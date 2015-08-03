@@ -181,7 +181,7 @@ function printcertificate( ) {
 }
 
 $(document).on('click', '.printcertificate', function () {
-	$(this).parent().children().fadeIn("fast");
+	$(".message").append("Das Zertifikat wurde ausgedrückt");
 	printcertificate();
 });
 
