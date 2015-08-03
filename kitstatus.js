@@ -181,7 +181,7 @@ function printcertificate( ) {
 }
 
 $(document).on('click', '.printcertificate', function () {
-	$(".message").append("<div class=\"alert alert-success\" role=\"alert\"><a href=\"#\" class=\"alert-link\"><?php echo $message[ 1 ]; ?></a></div>");
+	$(".message").append("<div class=\"alert alert-success\" role=\"alert\"><a href=\"#\" class=\"alert-link\">Das Zertifikat wurde ausgedruckt</a></div>");
 	//printcertificate();
 });
 
