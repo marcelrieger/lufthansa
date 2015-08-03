@@ -181,6 +181,23 @@ function printcertificate(doc) {
 	$.post( "/?ajax=1&scenario=kitting&print=1&material="+doc,{ "requests[]": [ ] } );
 }
 
+function timer() {
+	var i = 4;
+
+	while (i>0) {
+		setInterval(function(){
+		$(".timer").text("("+i+")");
+		}, 1000);
+	}
+
+	$(".timer").parent().click();
+
+}
+
+$(document).on('click', '.kitdocumentation', function () {
+	timer();
+});
+
 $(document).on('click', '.printcertificate', function () {
 	$(".message").html("<div class=\"alert alert-info\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Das Zertifikat wurde ausgedruckt.</div>").hide().fadeIn("fast");
 	printcertificate(1);
@@ -195,7 +212,8 @@ $(document).on('click', '.close', function () {
 	$(this).parent().fadeOut("fast", function() {
 		$(this).remove();
 	});
-	//printcertificate();
 });
+
+setInterval(function(){ timer() }, 1000);
 
 $( init );
