@@ -42,7 +42,7 @@ function new_tr( goal ) {
 
 	//result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
 
-	result = $( "<tr class=\""+tr_class+"\"><td class=\"left\"><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+writeHTML(goal.location)+"</td><td>"+rfid_field+"</td></tr>" );
+	result = $( "<tr class=\""+tr_class+"\"><td class=\"left\"><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+writeHTML(goal.location)+"</td><td>"+rfid_field+"</td><td><span class=\"printcertificate glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></span></td></tr>" );
 
 	result.find( "input" ).click( function( e ) { $( e.target ).data( "requested",true ); } );
 
@@ -175,5 +175,13 @@ function sync_kits( ) {
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
 }
+
+function printcertificate( ) {
+	$.post( "/?ajax=1&scenario=kitting&print=1&material=0",{ "requests[]": [ ] } );
+}
+
+$( ".printcertificate" ).click(function() {
+	printcertificate();
+});
 
 $( init );
