@@ -44,10 +44,16 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
               <li<?php if($current_kit[ "status" ]>1) echo " class=\"active\""; ?>><span>Kitting</span></li>
             </ol>
           </div>
+					<div class="next">
+            <div class="btn-group" role="group" aria-label="Default button group">
+              <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Dokumentation</a>
+              <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Vollständigkeitssiegel</a>
+            </div>
+          </div>
         </div>
 
 				<div class="message">
-					
+
 				</div>
 
         <div class="pagecontent table-responsive">

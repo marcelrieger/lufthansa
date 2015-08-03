@@ -151,6 +151,7 @@ function sync_kits( ) {
 				$( ".breadcrumb" ).children().children().eq(0).addClass("active").removeClass("animate");
 				$( ".breadcrumb" ).children().children().eq(1).addClass("active").removeClass("animate");
 				$( ".breadcrumb" ).children().children().eq(2).addClass("active").addClass("animate");
+				$( ".next" ).fadeIn("fast");
 			} else if (status2) {
 				statusf = 1;
 
