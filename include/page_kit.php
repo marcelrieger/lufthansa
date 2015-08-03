@@ -12,8 +12,9 @@ current_order_id = <?php echo $current_order[ "id" ]; ?>;
 current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
 /* ]]> */
 </script>
-<script src="jquery.js" type="text/javascript"></script>
-<script src="kitstatus.js" type="text/javascript"></script>
+<script src="static/js/jquery.js" type="text/javascript"></script>
+<script src="static/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="static/js/kitstatus.js" type="text/javascript"></script>
 
 <div class="pagetitle">
   <div class="container">
@@ -46,7 +47,7 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
           </div>
 					<div class="next">
             <div class="btn-group" role="group" aria-label="Default button group">
-              <button type="button" class="btn btn-default kitdocumentation"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Dokumentation</button>
+              <button type="button" class="btn btn-default kitdocumentation" data-toggle="modal" data-target="#kitdocumentation"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Dokumentation</button>
               <button type="button" class="btn btn-default kitseal"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Vollständigkeitssiegel</button>
             </div>
           </div>
@@ -54,6 +55,24 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
 
 				<div class="message">
 
+				</div>
+
+				<div class="modal fade" id="kitdocumentation" tabindex="-1" role="dialog" aria-labelledby="kitdocumentationLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Vollständigkeits</h4>
+				      </div>
+				      <div class="modal-body">
+				        ...
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary">Save changes</button>
+				      </div>
+				    </div>
+				  </div>
 				</div>
 
         <div class="pagecontent table-responsive">
