@@ -8,8 +8,13 @@ function create_tag( ) {
 
 if ($_GET["print"]="1" && isset($_GET["material"])) {
 
+	if ($_GET["material"]=="0")
+		$cert = "cert/"."seal.pdf";
+	else
+		$cert = "cert/"."cert".".txt";
 
-	echo json_encode( exec("python print.py /var/www/ltls/localhost/cert/cert.txt") );
+	echo json_encode( exec("python print.py /var/www/ltls/localhost/".$cert) );
+
 } else if( is_null( $current_order ) || is_null( $current_kit ) ) {
 
 ?>
