@@ -180,12 +180,11 @@ function printcertificate( ) {
 	$.post( "/?ajax=1&scenario=kitting&print=1&material=0",{ "requests[]": [ ] } );
 }
 
-$( ".printcertificate" ).click(function() {
+$(document).on('click', '.printcertificate', function () {
 	$(this).next().fadeIn("fast");
 	$(".printdone").css("opacity","1");
 	console.log("CLICKED");
 	printcertificate();
-
 });
 
 $( init );
