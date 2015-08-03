@@ -42,7 +42,7 @@ function new_tr( goal ) {
 
 	//result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
 
-	result = $( "<tr class=\""+tr_class+"\"><td class=\"left\"><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+writeHTML(goal.location)+"</td><td>"+rfid_field+"</td><td><span class=\"printcertificate glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></span> <span class=\"printdone glyphicon glyphicon-ok\" aria-hidden=\"true\"></td></tr>" );
+	result = $( "<tr class=\""+tr_class+"\"><td class=\"left\"><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+writeHTML(goal.location)+"</td><td>"+rfid_field+"</td><td><span class=\"printcertificate glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></span> <span class=\"printdone glyphicon glyphicon-ok\" aria-hidden=\"true\"></span></td></tr>" );
 
 	result.find( "input" ).click( function( e ) { $( e.target ).data( "requested",true ); } );
 
@@ -181,7 +181,7 @@ function printcertificate( ) {
 }
 
 $(document).on('click', '.printcertificate', function () {
-	$(".message").append("Das Zertifikat wurde ausgedrückt");
+	$(this).parent().children(".printdone").fadeIn("fast");
 	printcertificate();
 });
 
