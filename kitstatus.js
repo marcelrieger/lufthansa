@@ -182,7 +182,7 @@ function printcertificate( ) {
 
 $( ".printcertificate" ).click(function() {
 	printcertificate();
-	$(this).parent().children(".printdone").fadeIn("fast");
+	$(this).next().fadeIn("fast");
 });
 
 $( init );
