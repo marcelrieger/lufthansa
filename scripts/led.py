@@ -31,16 +31,15 @@ def toggleLED(ls,state,position=None):
     if position:
         print(position+": "+str(parsePosition(str(position))))
         position = parsePosition(str(position))
-        if state==3:
-            turnoff(ls)
-        elif state:
-            ls.set_rgb_values(position, 5, [255]*16, [0]*16, [0]*16)
-        else:
-            ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
     else:
         turnoff(ls)
 
-
+    if state==3:
+        turnoff(ls)
+    elif state:
+        ls.set_rgb_values(position, 5, [255]*16, [0]*16, [0]*16)
+    else:
+        ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
 
 def parsePosition(position):
     col = position[3:]
@@ -53,8 +52,11 @@ def parsePosition(position):
 
 def opr(ls):
 
-    for i in range (2, len(sys.argv)):
-        toggleLED(ls, int(sys.argv[1]), sys.argv[i])
+    if len(sys.argv)<3:
+        toggleLED(ls, int(sys.argv[1]))
+    else:
+        for i in range (2, len(sys.argv)):
+            toggleLED(ls, int(sys.argv[1]), sys.argv[i])
 
 if __name__ == "__main__":
 
