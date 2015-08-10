@@ -45,6 +45,7 @@ function new_tr( goal ) {
 		if( goal.count==goal.target ) {
 			toggleLED(0,goal.location);
 			rfid_field = "<input type=\"button\" value=\"Label Zuweisung\" />";
+			$.post( "/?ajax=1&cabinet=1&state=0&location="+goal.location,{ "requests[]": [ ] } );
 		}
 		else {
 			toggleLED(1,goal.location);
