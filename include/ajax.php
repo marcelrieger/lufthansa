@@ -25,7 +25,7 @@ if (isset($_GET["print"]) && isset($_GET["material"])) {
 
 	exec("python scripts/led.py ".$location);
 
-	echo json_encode( "LED UPDATED." );
+	echo json_encode( "LED UPDATED. ".$location );
 
 } else if( is_null( $current_order ) || is_null( $current_kit ) ) {
 
