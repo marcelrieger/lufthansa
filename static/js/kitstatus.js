@@ -43,7 +43,7 @@ function new_tr( goal ) {
 	} else {
 		count_field = "<input type=\"text\" class=\"count\" value=\""+goal.count+"\" />";
 		if( goal.count==goal.target ) {
-			rfid_field = "<input type=\"button\" class=\"goalinput\" value=\"Label Zuweisung\" />";
+			rfid_field = "<input type=\"button\" value=\"Label Zuweisung\" />";
 		}
 		else {
 			toggleLED(1,goal.location);
@@ -225,7 +225,7 @@ $(document).on('click', '.close', function () {
 	});
 });
 
-$( ".goalinput" ).each(function( i ) {
+$( ".count" ).each(function( i ) {
     $(this).keydown(function( event ) {
 			alert($(this).parent().parent().children().eq(6).text());
 		});
