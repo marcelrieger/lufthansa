@@ -26,8 +26,10 @@ function new_tr( goal ) {
 	if( goal.tag_id ) {
 		count_field = goal.count;
 		rfid_field = goal.tag_id;
-		if( goal.archived=="f" )
+		if( goal.archived=="f" ) {
+			toggleLED(1,goal.location);
 			tr_class = "ready";
+		}
 		else
 			tr_class = "final";
 	} else {
@@ -179,6 +181,10 @@ function sync_kits( ) {
 
 function printcertificate(doc) {
 	$.post( "/?ajax=1&scenario=kitting&print=1&material="+doc,{ "requests[]": [ ] } );
+}
+
+function toggleLED(state,loc) {
+	$.post( "/?ajax=1&cabiner=1&state="+state+"&location="+loc,{ "requests[]": [ ] } );
 }
 
 function timer() {
