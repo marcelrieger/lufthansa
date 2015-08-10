@@ -15,7 +15,7 @@ if ($_GET["print"]=="1" && isset($_GET["material"])) {
 
 	echo json_encode( exec("python scripts/print.py /var/www/ltls/localhost/".$cert) );
 
-} else if (isset($_GET["cabinet"]=="1")) {
+} else if (isset($_GET["cabinet"])) {
 
 	$location = (isset($_GET["location"])) ? $_GET["location"] : ""
 
