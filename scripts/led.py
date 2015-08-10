@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-HOST = "10.0.0.100"
+HOST = "137.226.151.148"
 PORT = 4223
 
 import sys
