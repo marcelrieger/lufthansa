@@ -125,9 +125,7 @@ function sync_result_funcfac( ) {
 								children.eq( 5 ).find( "input" ).val( should );
 							}
 							toggleLED(1,goal.location);
-						} else {
-							toggleLED(0,goal.location);
-						}
+						} 
 						children.eq( 7 ).find( "input" ).eq( 0 ).prop( "disabled",children.eq( 5 ).find( "input" ).val( )!=goal.target );
 
 					}
