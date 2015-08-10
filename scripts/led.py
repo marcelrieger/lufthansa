@@ -50,8 +50,8 @@ def opr(ls):
 
     turnoff(ls)
 
-    for i in range (1, len(sys.argv)):
-        toggleLED(ls, 1, sys.argv[i])
+    for i in range (2, len(sys.argv)):
+        toggleLED(ls, sys.argv[1], sys.argv[i])
 
 if __name__ == "__main__":
 

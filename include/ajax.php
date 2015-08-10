@@ -18,10 +18,11 @@ if (isset($_GET["print"]) && isset($_GET["material"])) {
 } else if (isset($_GET["cabinet"])) {
 
 	$location = (isset($_GET["location"])) ? $_GET["location"] : "";
+	$state = (isset($_GET["state"])) ? $_GET["state"] : "0";
 
-	exec("python scripts/led.py ".$location);
+	exec("python scripts/led.py ".$state." "$location);
 
-	echo json_encode( "LED UPDATED. ".$location );
+	echo json_encode( "LED UPDATED. ");
 
 } else if( is_null( $current_order ) || is_null( $current_kit ) ) {
 
