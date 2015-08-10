@@ -15,9 +15,15 @@ if ($_GET["print"]="1" && isset($_GET["material"])) {
 
 	echo json_encode( exec("python scripts/print.py /var/www/ltls/localhost/".$cert) );
 
-} else if ($_GET["cabinet"]="1" && isset($_GET["location"])) {
+} else if ($_GET["cabinet"]="1") {
 
-	exec("python scripts/led.py A1 B3 C6")
+	$location = (isset($_GET["location"])) ? $_GET["location"] : ""
+
+	$location = explode("-", $location);
+
+	$location = str_replace("-", " ", $location);
+
+	exec("python scripts/led.py "+$location)
 
 	echo json_encode( "LED UPDATED." );
 
