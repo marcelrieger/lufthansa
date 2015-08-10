@@ -227,6 +227,7 @@ $(document).on('click', '.close', function () {
 
 $( ".count" ).each(function( i ) {
     $(this).keydown(function( event ) {
+			console.log($(this));
 			alert($(this).parent().parent().children().eq(6).text());
 		});
 });
