@@ -28,7 +28,6 @@ function writeHTML ( obj ) {
 }
 
 function new_tr( goal ) {
-	toggleLED(1,goal.location);
 	var count_field;
 	var rfid_field;
 	var tr_class;
@@ -43,10 +42,14 @@ function new_tr( goal ) {
 			tr_class = "final";
 	} else {
 		count_field = "<input type=\"text\" class=\"count\" value=\""+goal.count+"\" />";
-		if( goal.count==goal.target )
+		if( goal.count==goal.target ) {
+			toggleLED(0,goal.location);
 			rfid_field = "<input type=\"button\" value=\"Label Zuweisung\" />";
-		else
+		}
+		else {
+			toggleLED(1,goal.location);
 			rfid_field = "<input type=\"button\" disabled=\"disabled\" value=\"Label Zuweisung\" />";
+		}
 
 		tr_class = ""
 	}
