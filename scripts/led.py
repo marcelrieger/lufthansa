@@ -26,7 +26,7 @@ def turnoff(ls):
     for i in range(0,20):
         ls.set_rgb_values(i*10, 10, [0]*16, [0]*16, [0]*16)
 
-def toggleLED(ls,state,position):
+def toggleLED(ls,state,position=""):
 
     print(position+": "+str(parsePosition(str(position))))
 
