@@ -38,8 +38,8 @@ def toggleLED(ls,state,position):
         ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
 
 def parsePosition(position):
-    col = position[:1]
-    row = position[1:]
+    col = position[3:]
+    row = position[:2]
     if col == 'A':
         col = 0
     else:
