@@ -32,7 +32,9 @@ def toggleLED(ls,state,position):
 
     position = parsePosition(str(position))
 
-    if state:
+    if state==3:
+        turnoff(ls)
+    else if state:
         ls.set_rgb_values(position, 5, [255]*16, [0]*16, [0]*16)
     else:
         ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
@@ -47,8 +49,6 @@ def parsePosition(position):
     return locList[col][int(row)-1]
 
 def opr(ls):
-
-    turnoff(ls)
 
     for i in range (2, len(sys.argv)):
         toggleLED(ls, int(sys.argv[1]), sys.argv[i])
