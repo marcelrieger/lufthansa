@@ -184,7 +184,7 @@ function printcertificate(doc) {
 }
 
 function toggleLED(state,loc) {
-	$.post( "/?ajax=1&cabiner=1&state="+state+"&location="+loc,{ "requests[]": [ ] } );
+	$.post( "/?ajax=1&cabinet=1&state="+state+"&location="+loc,{ "requests[]": [ ] } );
 }
 
 function timer() {
