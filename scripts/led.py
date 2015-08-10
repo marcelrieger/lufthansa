@@ -34,7 +34,7 @@ def toggleLED(ls,state,position):
 
     if state==3:
         turnoff(ls)
-    else if state:
+    elif state:
         ls.set_rgb_values(position, 5, [255]*16, [0]*16, [0]*16)
     else:
         ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
