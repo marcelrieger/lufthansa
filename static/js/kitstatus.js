@@ -44,6 +44,7 @@ function new_tr( goal ) {
 		count_field = "<input type=\"text\" class=\"count\" value=\""+goal.count+"\" />";
 		if( goal.count==goal.target ) {
 			rfid_field = "<input type=\"button\" value=\"Label Zuweisung\" />";
+			toggleLED(3,goal.location);
 		}
 		else {
 			toggleLED(1,goal.location);
