@@ -21,6 +21,7 @@ if (isset($_GET["print"]) && isset($_GET["material"])) {
 	$state = (isset($_GET["state"])) ? $_GET["state"] : "0";
 
 	exec("python scripts/led.py ".$state." ".$location);
+	echo "python scripts/led.py ".$state." ".$location;
 
 	echo json_encode( "LED UPDATED. ");
 
