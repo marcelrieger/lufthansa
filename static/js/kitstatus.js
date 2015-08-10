@@ -14,7 +14,7 @@ function toggleLED(state,loc) {
 function init( ) {
 	intervalID = window.setInterval( sync_kits,SYNC_INTERVAL );
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": [ ] },sync_result_funcfac( ),"json" );
-	toggleLED(3,"");
+	$.post( "/?ajax=1&cabinet=1&state="+3,{ "requests[]": [ ] } );
 }
 
 function tr_id( tr ) {
