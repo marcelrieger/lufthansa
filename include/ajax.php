@@ -23,7 +23,7 @@ if ($_GET["print"]=="1" && isset($_GET["material"])) {
 
 	$location = str_replace("-", " ", $location);
 
-	exec("python scripts/led.py "+$location)
+	exec("python scripts/led.py "+$location);
 
 	echo json_encode( "LED UPDATED." );
 
