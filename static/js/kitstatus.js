@@ -3,9 +3,18 @@ const SYNC_INTERVAL=750;
 var IntervalID;
 var latestSync = Date.now( );
 
+function printcertificate(doc) {
+	$.post( "/?ajax=1&scenario=kitting&print=1&material="+doc,{ "requests[]": [ ] } );
+}
+
+function toggleLED(state,loc) {
+	$.post( "/?ajax=1&cabinet=1&state="+state+"&location="+loc,{ "requests[]": [ ] } );
+}
+
 function init( ) {
 	intervalID = window.setInterval( sync_kits,SYNC_INTERVAL );
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": [ ] },sync_result_funcfac( ),"json" );
+	toggleLED(3,"");
 }
 
 function tr_id( tr ) {
@@ -19,6 +28,7 @@ function writeHTML ( obj ) {
 }
 
 function new_tr( goal ) {
+	toggleLED(1,goal.location);
 	var count_field;
 	var rfid_field;
 	var tr_class;
@@ -27,7 +37,6 @@ function new_tr( goal ) {
 		count_field = goal.count;
 		rfid_field = goal.tag_id;
 		if( goal.archived=="f" ) {
-			toggleLED(1,goal.location);
 			tr_class = "ready";
 		}
 		else
@@ -177,14 +186,6 @@ function sync_kits( ) {
 		}
 
 	$.post( "/?ajax=1&scenario=kitting&order_id="+current_order_id+"&kit_id="+current_kit_id,{ "requests[]": request_array },sync_result_funcfac( ),"json" );
-}
-
-function printcertificate(doc) {
-	$.post( "/?ajax=1&scenario=kitting&print=1&material="+doc,{ "requests[]": [ ] } );
-}
-
-function toggleLED(state,loc) {
-	$.post( "/?ajax=1&cabinet=1&state="+state+"&location="+loc,{ "requests[]": [ ] } );
 }
 
 function timer() {
