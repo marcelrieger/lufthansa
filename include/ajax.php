@@ -13,7 +13,13 @@ if ($_GET["print"]="1" && isset($_GET["material"])) {
 	else
 		$cert = "cert/"."cert".".txt";
 
-	echo json_encode( exec("python print.py /var/www/ltls/localhost/".$cert) );
+	echo json_encode( exec("python scripts/print.py /var/www/ltls/localhost/".$cert) );
+
+} else if ($_GET["cabinet"]="1" && isset($_GET["location"])) {
+
+	exec("python scripts/led.py A1 B3 C6")
+
+	echo json_encode( "LED UPDATED." );
 
 } else if( is_null( $current_order ) || is_null( $current_kit ) ) {
 
