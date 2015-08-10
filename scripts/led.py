@@ -31,16 +31,16 @@ def toggleLED(ls,state,position=None):
     if position:
         print(position+": "+str(parsePosition(str(position))))
         position = parsePosition(str(position))
+        if state==3:
+            turnoff(ls)
+        elif state:
+            ls.set_rgb_values(position, 5, [255]*16, [0]*16, [0]*16)
+        else:
+            ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
     else:
         turnoff(ls)
-        return
 
-    if state==3:
-        turnoff(ls)
-    elif state:
-        ls.set_rgb_values(position, 5, [255]*16, [0]*16, [0]*16)
-    else:
-        ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
+
 
 def parsePosition(position):
     col = position[3:]
