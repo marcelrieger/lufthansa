@@ -17,7 +17,7 @@ if ($_GET["print"]=="1" && isset($_GET["material"])) {
 
 } else if (isset($_GET["cabinet"])) {
 
-	$location = (isset($_GET["location"])) ? $_GET["location"] : ""
+	$location = (isset($_GET["location"])) ? $_GET["location"] : "";
 
 	$location = explode("-", $location);
 
