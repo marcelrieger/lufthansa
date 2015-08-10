@@ -6,7 +6,7 @@ function create_tag( ) {
 	return $free[ 0 ];
 }
 
-if ($_GET["print"]="1" && isset($_GET["material"])) {
+if ($_GET["print"]=="1" && isset($_GET["material"])) {
 
 	if ($_GET["material"]=="0")
 		$cert = "cert/"."seal.pdf";
@@ -15,7 +15,7 @@ if ($_GET["print"]="1" && isset($_GET["material"])) {
 
 	echo json_encode( exec("python scripts/print.py /var/www/ltls/localhost/".$cert) );
 
-} else if (isset($_GET["cabinet"]="1")) {
+} else if (isset($_GET["cabinet"]=="1")) {
 
 	$location = (isset($_GET["location"])) ? $_GET["location"] : ""
 
