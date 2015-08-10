@@ -121,9 +121,9 @@ function sync_result_funcfac( ) {
 							var should = parseInt( goal.count );
 							var has = parseInt( goal.inventory );
 
-							if( ( is-should )>has ) {
+							if( is-should > has ) {
 								children.eq( 5 ).find( "input" ).val( should );
-							} else if ( is-should )==has )
+							} else if ( is-should == has )
 								toggleLED(0,goal.location);
 							else
 								toggleLED(1,goal.location);
