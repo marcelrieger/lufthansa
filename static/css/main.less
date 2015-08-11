@@ -105,7 +105,7 @@ div {
   overflow: hidden;
 
   .breadcrumb {
-    width: 830px;
+    width: 750px;
     float: left;
 
     ul {
@@ -162,7 +162,7 @@ div {
 
           span {
             color: @blue;
-            background: @yellow!important;
+            background: @yellow;
             font-weight: bold;
             &:after {
               border-left: 20px solid @yellow;
@@ -174,7 +174,7 @@ div {
 
           span {
             color: @blue;
-            background: @yellow!important;
+            background: @yellow;
             font-weight: bold;
             animation: blink 1s alternate infinite;
             -webkit-animation: blink 1s alternate infinite;
@@ -195,66 +195,12 @@ div {
 
   }
   .next {
-    width: 250px;
+    display: none;
+    width: 350px;
+    margin: 7px 0;
     float: right;
     text-align: right;
-    a {
-      animation: blink 2s alternate infinite;
-      -webkit-animation: blink 2s alternate infinite;
-      -moz-animation: blink 2s alternate infinite;
-      -o-animation: blink 2s alternate infinite;
-      display: block;
-      float: left;
-      height: 15px;
-      background: @gray25;
-      text-align: center;
-      padding: 10px 30px 15px 40px;
-      position: relative;
-      margin: 0 10px 0 0;
-      font-size: 15px;
-      text-decoration: none;
-      color: @gray60;
-      &:after {
-        border-left: 20px solid @gray25;
-        animation: blinkbleft 2s alternate infinite;
-        -webkit-animation: blinkbleft 2s alternate infinite;
-        -moz-animation: blinkbleft 2s alternate infinite;
-        -o-animation: blinkbleft 2s alternate infinite;
-        content: "";
-        border-top: 20px solid transparent;
-        border-bottom: 20px solid transparent;
-        position: absolute; right: -20px; top: 0;
-        z-index: 1;
-      }
-      &:before {
-        content: "";
-        border-top: 20px solid transparent;
-        border-bottom: 20px solid transparent;
-        border-left: 20px solid #fff;
-        position: absolute; left: 0; top: 0;
-      }
-      &:hover {
-        font-weight: bold;
-        color: @blue;
-        animation: none;
-        -webkit-animation: none;
-        -moz-animation: none;
-        -o-animation: none;
-        background: @yellow!important;
-        &:after {
-          content: "";
-          border-top: 20px solid transparent;
-           border-bottom: 20px solid transparent;
-          border-left: 20px solid @yellow;
-          animation: none;
-          -webkit-animation: none;
-          -moz-animation: none;
-          -o-animation: none;
-          position: absolute; right: -20px; top: 0;
-          z-index: 1;
-        }
-      }
-    }
+
   }
 }
 
@@ -370,15 +316,20 @@ tr.final td {
   border-top: 1px solid #08FF11;
 }
 
+span.id {
+	display: none;
+}
+
 .printcertificate {
   cursor: pointer;
+  color: @gray40;
   &:hover {
     color: @blue;
   }
 }
 
-span.id {
-	display: none;
+.printdone {
+  opacity: 0;
 }
 
 .center {
