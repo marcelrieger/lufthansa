@@ -162,7 +162,7 @@ function sync_kits( ) {
 	}
 
 	toggleLED(1,loclist);
-    console.log(loclist);
+    //console.log(loclist);
 
 		if ((trs.length>0)) {
 
