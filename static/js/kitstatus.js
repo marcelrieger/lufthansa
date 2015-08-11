@@ -138,8 +138,8 @@ function sync_kits( ) {
 
 	var trs = $( "#kittable" ).children( );
 
-	var status2 = true;
-	var status3 = true;
+	var status2 = false;
+	var status3 = false;
 	var statusf = 0;
   var loclist = "";
 
@@ -152,8 +152,8 @@ function sync_kits( ) {
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 
-		if (($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
-		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
+		if (($(trs.eq( i )).attr("class")=="ready")&&($(trs.eq( i )).attr("class")=="final")) {status2=true;}
+		if ($(trs.eq( i )).attr("class")=="final") {status3=true;}
 
         var Llocation = trs.eq( i ).children( ).eq( 7 ).text( );
         var Ltargetval = parseInt( trs.eq( i ).children( ).eq( 5 ).text( ) );
