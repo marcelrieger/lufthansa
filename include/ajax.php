@@ -9,8 +9,7 @@ if (isset($_GET["reset"])) {
 
 	$ri = "f";
 	$rj = "";
-	pg_query( "UPDATE groups SET archived=$ri;" );
-	pg_query( "UPDATE groups SET tag_id=$rj;" );
+
 
 } isset($_GET["print"]) && isset($_GET["material"])) {
 
