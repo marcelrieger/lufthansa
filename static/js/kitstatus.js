@@ -37,10 +37,10 @@ function new_tr( goal ) {
 		count_field = goal.count;
 		rfid_field = goal.tag_id;
 		if( goal.archived=="f" ) {
-			tr_class = "final";
+			tr_class = "ready";
 		}
 		else
-			tr_class = "ready";
+			tr_class = "final";
 	} else {
 		count_field = "<input type=\"text\" class=\"count\" value=\""+goal.count+"\" />";
 		if( goal.count==goal.target )
