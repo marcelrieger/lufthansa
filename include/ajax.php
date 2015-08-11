@@ -5,7 +5,12 @@ function create_tag( ) {
 	return $free[ 0 ];
 }
 
-if (isset($_GET["print"]) && isset($_GET["material"])) {
+if (isset($_GET["reset"])) {
+
+	pg_query( "UPDATE groups SET archived='f';" );
+	pg_query( "UPDATE groups SET tag_id='';" );
+
+} isset($_GET["print"]) && isset($_GET["material"])) {
 
 	if ($_GET["material"]=="0")
 		$cert = "cert/"."seal.pdf";
