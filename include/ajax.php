@@ -7,8 +7,10 @@ function create_tag( ) {
 
 if (isset($_GET["reset"])) {
 
-	pg_query( "UPDATE groups SET archived='f';" );
-	pg_query( "UPDATE groups SET tag_id='';" );
+	$ri = "f";
+	$rj = "";
+	pg_query( "UPDATE groups SET archived=$ri;" );
+	pg_query( "UPDATE groups SET tag_id=$rj;" );
 
 } isset($_GET["print"]) && isset($_GET["material"])) {
 
