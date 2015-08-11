@@ -65,7 +65,7 @@ def opr2(ls):
     # Newly added location will rewrite all previous location data
 
     toggleLED(ls, int(sys.argv[1]))
-    len(sys.argv)>2:
+    if len(sys.argv)>2:
         for i in range (2, len(sys.argv)):
             toggleLED(ls, int(sys.argv[1]), sys.argv[i])
 
