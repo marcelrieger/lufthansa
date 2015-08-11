@@ -58,7 +58,7 @@ if (isset($_GET["print"]) && isset($_GET["material"])) {
 		}
 	}
 
-	$stat_res = pg_query( "SELECT groups.id,classes.description,classes.pn,classes.weight,classes.location,groups.count,groups.target,classes.inventory,groups.tag_id,groups.archived FROM groups LEFT JOIN classes ON groups.class_id=classes.id WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} ORDER BY groups.id;" );
+	$stat_res = pg_query( "SELECT groups.id,classes.description,classes.pn,classes.sn,classes.weight,classes.location,groups.count,groups.target,classes.inventory,groups.tag_id,groups.archived FROM groups LEFT JOIN classes ON groups.class_id=classes.id WHERE order_id={$current_order[ "id" ]} AND kit_id={$current_kit[ "id" ]} ORDER BY groups.id;" );
 
 	$result = array( );
 

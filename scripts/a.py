@@ -4,90 +4,45 @@
 HOST = "137.226.151.148"
 PORT = 4223
 
-import sys, time
+NUM_LEDS = 16
+
+r = [0]*NUM_LEDS
+g = [0]*NUM_LEDS
+b = [0]*NUM_LEDS
+r_index = 0
+
+import time
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_led_strip import LEDStrip
 
-locList = [
-    [
-        0, 15, 20, 35, 40, 55, 60, 75, 80
-    ],
-    [
-        5, 10, 25, 30, 45, 50, 65, 70, 85
-    ]
-]
+# Frame rendered callback, is called when a new frame was rendered
+# We increase the index of one blue LED with every frame
+def cb_frame_rendered(ls, length):
+    global r_index
 
-def disconnect():
-    #raw_input()
-    #time.sleep(2)
-    ipcon.disconnect()
+    r_index += 1
 
-def turnoff(ls, delay=0):
-
-    if delay:
-        time.sleep(delay)
-    for i in range(0,20):
-        ls.set_rgb_values(i*10, 10, [0]*16, [0]*16, [0]*16)
-
-def toggleLED(ls,state,position=None):
-
-    if position:
-        print(position+": "+str(parsePosition(str(position))))
-        position = parsePosition(str(position))
-    else:
-        turnoff(ls)
-        return
-
-    if state==3:
-        turnoff(ls)
-    elif state:
-        ls.set_rgb_values(int(position), 5, [0]*16, [179]*16, [255]*16)
-    else:
-        ls.set_rgb_values(int(position), 5, [0]*16, [0]*16, [0]*16)
-
-def parsePosition(position):
-    col = position[3:]
-    row = position[:2]
-    if col == 'A':
-        col = 0
-    else:
-        col = 1
-    return locList[col][int(row)-1]
-
-def opr(ls):
-
-    # Newly added location will be stacked together with the old location data
-
-    if sys.argv == 3:
-        turnoff(ls,0.5)
-        turnoff(ls,1)
-        return
-
-    if len(sys.argv)<3:
-        toggleLED(ls, int(sys.argv[1]))
-    else:
-        for i in range (2, len(sys.argv)):
-            toggleLED(ls, int(sys.argv[1]), sys.argv[i])
-
-def opr2(ls):
-
-    # Newly added location will rewrite all previous location data
-
-    toggleLED(ls, int(sys.argv[1]))
-    if len(sys.argv)>2:
-        for i in range (2, len(sys.argv)):
-            toggleLED(ls, int(sys.argv[1]), sys.argv[i])
+    print("Index: "+str(r_index))
+    time.sleep(0.5)
+    # Set new data for next render cycle
+    ls.set_rgb_values(r_index, 1, [0]*16, [255]*16, [0]*16)
 
 if __name__ == "__main__":
+    ipcon = IPConnection() # Create IP connection
+    ls = LEDStrip("oV7", ipcon) # Create device object
 
-    ipcon = IPConnection()
-    ipcon.connect(HOST, PORT)
-    ipcon.set_timeout(10000)
-    ipcon.wait()
+    ipcon.connect(HOST, PORT) # Connect to brickd
+    # Don't use device before ipcon is connected
 
-    ls = LEDStrip("oV7", ipcon)
+    # Set frame duration to 50ms (20 frames per second)
+    ls.set_frame_duration(50)
 
-    opr2(ls)
+    # Register frame rendered callback to function cb_frame_rendered
+    ls.register_callback(ls.CALLBACK_FRAME_RENDERED,
+                         lambda x: cb_frame_rendered(ls, x))
 
-    ls.register_callback(ls.CALLBACK_FRAME_RENDERED, disconnect())
-    #disconnect()
+    # Set initial rgb values to get started
+    ls.set_rgb_values(0, NUM_LEDS, r, g, b)
+
+    raw_input('Press key to exit\n') # Use input() in Python 3
+    ipcon.disconnect()

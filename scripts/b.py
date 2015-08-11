@@ -10,10 +10,10 @@ from tinkerforge.bricklet_led_strip import LEDStrip
 
 locList = [
     [
-        58, 40
+        0, 15, 20, 35, 40, 55, 60, 75, 80
     ],
     [
-        87, 18
+        5, 10, 25, 30, 45, 50, 65, 70, 85
     ]
 ]
 
@@ -24,10 +24,7 @@ def disconnect():
 
 def turnoff(ls, delay=0):
 
-    if delay:
-        time.sleep(delay)
-    for i in range(0,20):
-        ls.set_rgb_values(i*10, 10, [0]*16, [0]*16, [0]*16)
+    pass
 
 def toggleLED(ls,state,position=None):
 
@@ -41,9 +38,9 @@ def toggleLED(ls,state,position=None):
     if state==3:
         turnoff(ls)
     elif state:
-        ls.set_rgb_values(int(position), 4, [0]*16, [255]*16, [0]*16)
+        ls.set_rgb_values(int(position), 5, [0]*16, [255]*16, [0]*16)
     else:
-        ls.set_rgb_values(int(position), 4, [0]*16, [0]*16, [0]*16)
+        ls.set_rgb_values(int(position), 5, [0]*16, [0]*16, [0]*16)
 
 def parsePosition(position):
     col = position[3:]
@@ -73,10 +70,12 @@ def opr2(ls):
 
     # Newly added location will rewrite all previous location data
 
-    toggleLED(ls, int(sys.argv[1]))
-    if len(sys.argv)>2:
-        for i in range (2, len(sys.argv)):
-            toggleLED(ls, int(sys.argv[1]), sys.argv[i])
+    #toggleLED(ls, int(sys.argv[1]))
+    if int(sys.argv[1])==0:
+        ls.set_rgb_values(int(sys.argv[2]), 1, [0]*16, [0]*16, [0]*16)
+    else:
+        ls.set_rgb_values(int(sys.argv[2]), 1, [0]*16, [255]*16, [0]*16)
+
 
 if __name__ == "__main__":
 
