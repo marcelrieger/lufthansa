@@ -162,7 +162,7 @@ function sync_kits( ) {
 		if (($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
 		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
 
-        var Llocation = parseInt( trs.eq( i ).children( ).eq( 6 ).text( ) );
+        var Llocation = trs.eq( i ).children( ).eq( 6 ).text( );
         var Ltargetval = parseInt( trs.eq( i ).children( ).eq( 4 ).text( ) );
         var Lval = parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) );
 
