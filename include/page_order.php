@@ -1,4 +1,4 @@
-<?php exec("python scripts/led.py 1"); ?>
+<?php exec("python scripts/led.py 3"); ?>
 <div class="pagetitle">
   <div class="container">
     <div class="title">
