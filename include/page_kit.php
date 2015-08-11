@@ -81,8 +81,11 @@ current_kit_id = <?php echo $current_kit[ "id" ]; ?>;
                 <th>
                   Materialbezeichnung
                 </th>
-                <th>
+								<th>
                   P/N
+                </th>
+								<th>
+                  S/N
                 </th>
                 <th>
                   Gewicht

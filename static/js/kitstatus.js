@@ -51,7 +51,7 @@ function new_tr( goal ) {
 
 	//result = $( "<tr class=\""+tr_class+"\"><td><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+rfid_field+"</td></tr>" );
 
-	result = $( "<tr class=\""+tr_class+"\"><td class=\"left\"><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+writeHTML(goal.location)+"</td><td>"+rfid_field+"</td><td><span class=\"printcertificate glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></span></td></tr>" );
+	result = $( "<tr class=\""+tr_class+"\"><td class=\"left\"><span class=\"id\">"+goal.id+"</span><span>"+goal.description+"</span></td><td>"+writeHTML(goal.pn)+"</td><td>"+writeHTML(goal.sn)+"</td><td>"+writeHTML(goal.weight)+"</td><td>"+goal.inventory+"</td><td>"+goal.target+"</td><td>"+count_field+"</td><td>"+writeHTML(goal.location)+"</td><td>"+rfid_field+"</td><td><span class=\"printcertificate glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></span></td></tr>" );
 
 	result.find( "input" ).click( function( e ) { $( e.target ).data( "requested",true ); } );
 
@@ -107,20 +107,21 @@ function sync_result_funcfac( ) {
 
 						children.eq( 0 ).children( ).eq( 1 ).text( goal.description );
 						children.eq( 1 ).text( writeHTML(goal.pn) );
-						children.eq( 2 ).text( writeHTML(goal.weight) );
-						children.eq( 6 ).text( writeHTML(goal.location) );
-						children.eq( 3 ).text( goal.inventory );
-						children.eq( 4 ).text( goal.target );
-						if( children.eq( 5 ).find( "input" ).val( )!=goal.count ) {
-							var is = parseInt( children.eq( 5 ).find( "input" ).val( ) );
+						children.eq( 2 ).text( writeHTML(goal.sn) );
+						children.eq( 3 ).text( writeHTML(goal.weight) );
+						children.eq( 7 ).text( writeHTML(goal.location) );
+						children.eq( 4 ).text( goal.inventory );
+						children.eq( 5 ).text( goal.target );
+						if( children.eq( 6 ).find( "input" ).val( )!=goal.count ) {
+							var is = parseInt( children.eq( 6 ).find( "input" ).val( ) );
 							var should = parseInt( goal.count );
 							var has = parseInt( goal.inventory );
 
 							if( is-should > has )
-								children.eq( 5 ).find( "input" ).val( should );
+								children.eq( 6 ).find( "input" ).val( should );
 
 						}
-						children.eq( 7 ).find( "input" ).eq( 0 ).prop( "disabled",children.eq( 5 ).find( "input" ).val( )!=goal.target );
+						children.eq( 8 ).find( "input" ).eq( 0 ).prop( "disabled",children.eq( 6 ).find( "input" ).val( )!=goal.target );
 
 					}
 
@@ -144,8 +145,8 @@ function sync_kits( ) {
 	for( var i = 0; i<trs.length; i++ ) {
 		request_obj = {
             "id":parseInt( trs.eq( i ).children( ).eq( 0 ).children( ).eq( 0 ).text( ) ),
-			"value":parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) ),
-			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true,
+			"value":parseInt( trs.eq( i ).children( ).eq( 6 ).find( "input" ).val( ) ),
+			"tag":trs.eq( i ).children( ).eq( 8 ).find( "input" ).data( "requested" )==true,
 			"status": -1
 		};
 		request_array.push( JSON.stringify( request_obj ) );
@@ -153,9 +154,9 @@ function sync_kits( ) {
 		if (($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
 		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
 
-        var Llocation = trs.eq( i ).children( ).eq( 6 ).text( );
-        var Ltargetval = parseInt( trs.eq( i ).children( ).eq( 4 ).text( ) );
-        var Lval = parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) );
+        var Llocation = trs.eq( i ).children( ).eq( 7 ).text( );
+        var Ltargetval = parseInt( trs.eq( i ).children( ).eq( 5 ).text( ) );
+        var Lval = parseInt( trs.eq( i ).children( ).eq( 6 ).find( "input" ).val( ) );
 
         if (Lval < Ltargetval)
             loclist += Llocation+"-";
