@@ -37,7 +37,7 @@ def toggleLED(ls,state,position=None):
     if state==3:
         turnoff(ls)
     elif state:
-        ls.set_rgb_values(position, 5, [0]*16, [255]*16, [0]*16)
+        ls.set_rgb_values(position, 5, [255]*16, [0]*16, [0]*16)
     else:
         ls.set_rgb_values(position, 5, [0]*16, [0]*16, [0]*16)
 
@@ -64,9 +64,8 @@ def opr2(ls):
 
     # Newly added location will rewrite all previous location data
 
-    turnoff(ls)
-
-    if len(sys.argv)>2:
+    toggleLED(ls, int(sys.argv[1]))
+    len(sys.argv)>2:
         for i in range (2, len(sys.argv)):
             toggleLED(ls, int(sys.argv[1]), sys.argv[i])
 
