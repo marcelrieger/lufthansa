@@ -36,7 +36,7 @@ function new_tr( goal ) {
 	if( goal.tag_id ) {
 		count_field = goal.count;
 		rfid_field = goal.tag_id;
-		if( goal.archived!="f" ) {
+		if( goal.archived=="f" ) {
 			tr_class = "ready";
 		}
 		else
