@@ -52,9 +52,21 @@ def parsePosition(position):
 
 def opr(ls):
 
+    # Newly added location will be stacked together with the old location data
+
     if len(sys.argv)<3:
         toggleLED(ls, int(sys.argv[1]))
     else:
+        for i in range (2, len(sys.argv)):
+            toggleLED(ls, int(sys.argv[1]), sys.argv[i])
+
+def opr2(ls):
+
+    # Newly added location will rewrite all previous location data
+
+    toggleLED(ls, 0)
+
+    if len(sys.argv)>2:
         for i in range (2, len(sys.argv)):
             toggleLED(ls, int(sys.argv[1]), sys.argv[i])
 
@@ -67,7 +79,7 @@ if __name__ == "__main__":
 
     ls = LEDStrip("oV7", ipcon)
 
-    opr(ls)
+    opr2(ls)
 
     ls.register_callback(ls.CALLBACK_FRAME_RENDERED, disconnect())
     #disconnect()

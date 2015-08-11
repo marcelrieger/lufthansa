@@ -42,15 +42,10 @@ function new_tr( goal ) {
 			tr_class = "final";
 	} else {
 		count_field = "<input type=\"text\" class=\"count\" value=\""+goal.count+"\" />";
-		if( goal.count==goal.target ) {
+		if( goal.count==goal.target )
 			rfid_field = "<input type=\"button\" value=\"Label Zuweisung\" />";
-			toggleLED(0,goal.location);
-		}
-		else {
-			toggleLED(1,goal.location);
+		else
 			rfid_field = "<input type=\"button\" disabled=\"disabled\" value=\"Label Zuweisung\" />";
-		}
-
 		tr_class = ""
 	}
 
@@ -121,12 +116,8 @@ function sync_result_funcfac( ) {
 							var should = parseInt( goal.count );
 							var has = parseInt( goal.inventory );
 
-							if( is-should > has ) {
+							if( is-should > has )
 								children.eq( 5 ).find( "input" ).val( should );
-							} else if ( is-should == has )
-								toggleLED(0,goal.location);
-							else
-								toggleLED(1,goal.location);
 
 						}
 						children.eq( 7 ).find( "input" ).eq( 0 ).prop( "disabled",children.eq( 5 ).find( "input" ).val( )!=goal.target );
@@ -169,6 +160,8 @@ function sync_kits( ) {
         if (Lval < Ltargetval)
             loclist = loclist + " " + Llocation;
 	}
+
+	toggleLED(1,loclist);
     console.log(loclist);
 
 		if ((trs.length>0)) {
