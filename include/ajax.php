@@ -1,5 +1,7 @@
 <?php
 
+exec("python scripts/led.py 1");
+
 function create_tag( ) {
 	/* Picks first tag from database which is not associated to group */
 	$free = pg_fetch_row( pg_query( "SELECT id FROM tags WHERE NOT EXISTS( SELECT * FROM groups WHERE tags.id=groups.tag_id ) LIMIT 1;" ) );
