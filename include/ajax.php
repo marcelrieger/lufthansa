@@ -5,13 +5,7 @@ function create_tag( ) {
 	return $free[ 0 ];
 }
 
-if (isset($_GET["reset"])) {
-
-	$ri = "f";
-	$rj = "";
-
-
-} isset($_GET["print"]) && isset($_GET["material"])) {
+if (isset($_GET["print"]) && isset($_GET["material"])) {
 
 	if ($_GET["material"]=="0")
 		$cert = "cert/"."seal.pdf";
