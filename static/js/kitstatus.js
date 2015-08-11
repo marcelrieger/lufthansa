@@ -148,10 +148,11 @@ function sync_kits( ) {
 	var status2 = true;
 	var status3 = true;
 	var statusf = 0;
+    var loclist = "";
 
 	for( var i = 0; i<trs.length; i++ ) {
 		request_obj = {
-			"id":parseInt( trs.eq( i ).children( ).eq( 0 ).children( ).eq( 0 ).text( ) ),
+            "id":parseInt( trs.eq( i ).children( ).eq( 0 ).children( ).eq( 0 ).text( ) ),
 			"value":parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) ),
 			"tag":trs.eq( i ).children( ).eq( 7 ).find( "input" ).data( "requested" )==true,
 			"status": -1
@@ -160,7 +161,15 @@ function sync_kits( ) {
 
 		if (($(trs.eq( i )).attr("class")!="ready")&&($(trs.eq( i )).attr("class")!="final")) {status2=false;}
 		if ($(trs.eq( i )).attr("class")!="final") {status3=false;}
+
+        var Llocation = parseInt( trs.eq( i ).children( ).eq( 6 ).text( ) );
+        var Ltargetval = parseInt( trs.eq( i ).children( ).eq( 4 ).text( ) );
+        var Lval = parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) );
+
+        if (Lval < Ltargetval)
+            loclist = loclist + " " + Llocation;
 	}
+    console.log(loclist);
 
 		if ((trs.length>0)) {
 
