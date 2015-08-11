@@ -2,6 +2,7 @@ const SYNC_INTERVAL=750;
 
 var IntervalID;
 var latestSync = Date.now( );
+globalloc = "";
 
 function printcertificate(doc) {
 	$.post( "/?ajax=1&scenario=kitting&print=1&material="+doc,{ "requests[]": [ ] } );
@@ -162,9 +163,11 @@ function sync_kits( ) {
             loclist += Llocation+"-";
 	}
 
-	toggleLED(1,loclist);
-    //console.log(loclist);
-
+	if (globalloc != loclist) {
+		globalloc = loclist;
+		toggleLED(1,globalloc);
+	}
+	
 		if ((trs.length>0)) {
 
 			if (status3) {
