@@ -4,7 +4,7 @@
 HOST = "137.226.151.148"
 PORT = 4223
 
-import sys
+import sys, time
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_led_strip import LEDStrip
 
@@ -22,7 +22,10 @@ def disconnect():
     #time.sleep(2)
     ipcon.disconnect()
 
-def turnoff(ls):
+def turnoff(ls, delay=0):
+
+    if delay:
+        time.sleep(delay)
     for i in range(0,20):
         ls.set_rgb_values(i*10, 10, [0]*16, [0]*16, [0]*16)
 
@@ -54,6 +57,11 @@ def parsePosition(position):
 def opr(ls):
 
     # Newly added location will be stacked together with the old location data
+
+    if sys.argv == 3:
+        turnoff(ls,0.5)
+        turnoff(ls,1)
+        return
 
     if len(sys.argv)<3:
         toggleLED(ls, int(sys.argv[1]))
