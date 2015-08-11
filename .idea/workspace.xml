@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe4a13f9-f5d2-4b42-a498-8e0cf4965da1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/print.py" afterPath="$PROJECT_DIR$/scripts/print.py" />
-    </list>
+    <list default="true" id="fe4a13f9-f5d2-4b42-a498-8e0cf4965da1" name="Default" comment="" />
     <ignored path="lufthansa.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
