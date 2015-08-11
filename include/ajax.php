@@ -12,7 +12,7 @@ if (isset($_GET["print"]) && isset($_GET["material"])) {
 	else
 		$cert = "cert/"."cert".".txt";
 
-	exec("python scripts/print.py /var/www/ltls/localhost/".$cert, $output)
+	exec("python scripts/print.py /var/www/ltls/localhost/".$cert, $output);
 
 	echo json_encode( $output );
 
