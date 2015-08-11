@@ -158,7 +158,7 @@ function sync_kits( ) {
         var Lval = parseInt( trs.eq( i ).children( ).eq( 5 ).find( "input" ).val( ) );
 
         if (Lval < Ltargetval)
-            loclist = loclist + " " + Llocation;
+            loclist += Llocation+"-";
 	}
 
 	toggleLED(1,loclist);
@@ -230,13 +230,6 @@ $(document).on('click', '.close', function () {
 	$(this).parent().fadeOut("fast", function() {
 		$(this).remove();
 	});
-});
-
-$( ".count" ).each(function( i ) {
-    $(this).keydown(function( event ) {
-			console.log($(this));
-			alert($(this).parent().parent().children().eq(6).text());
-		});
 });
 
 $( init );
