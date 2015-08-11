@@ -152,7 +152,7 @@ function sync_kits( ) {
 		};
 		request_array.push( JSON.stringify( request_obj ) );
 
-		if (($(trs.eq( i )).attr("class")=="ready")&&($(trs.eq( i )).attr("class")=="final")) {status2=true;}
+		if (($(trs.eq( i )).attr("class")=="ready")) {status2=true;}
 		if ($(trs.eq( i )).attr("class")=="final") {status3=true;}
 
         var Llocation = trs.eq( i ).children( ).eq( 7 ).text( );
