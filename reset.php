@@ -23,4 +23,6 @@ function pgvalue( $value ) {
 
 pg_query( "UPDATE groups SET archived='f';" );
 pg_query( "UPDATE groups SET tag_id='';" );
+pg_query( "UPDATE groups SET count=0;" );
+pg_query( "UPDATE classes SET inventory=2500;" );
 echo "Reset complete.";

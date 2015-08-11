@@ -141,7 +141,7 @@ function sync_kits( ) {
 	var status2 = true;
 	var status3 = true;
 	var statusf = 0;
-    var loclist = "";
+  var loclist = "";
 
 	for( var i = 0; i<trs.length; i++ ) {
 		request_obj = {
