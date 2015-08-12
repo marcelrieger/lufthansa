@@ -5,7 +5,10 @@ var latestSync = Date.now( );
 globalloc = "";
 
 function printcertificate(doc) {
-	$.post( "/?ajax=1&scenario=kitting&print=1&material="+doc,{ "requests[]": [ ] } );
+	if (doc)
+		$.post( "137.226.150.96:55665/print/cert"+,{ "requests[]": [ ] } );
+	else
+		$.post( "137.226.150.96:55665/print/cert"+,{ "requests[]": [ ] } );
 }
 
 function toggleLED(state,loc) {
