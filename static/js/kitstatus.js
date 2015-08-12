@@ -6,9 +6,9 @@ globalloc = "";
 
 function printcertificate(doc) {
 	if (doc)
-		$.post( "http://137.226.150.96:55665/print/cert",{ "requests[]": [ ] } );
+		$.post( "http://137.226.150.67:55665/print/cert",{ "requests[]": [ ] } );
 	else
-		$.post( "http://137.226.150.96:55665/print/seal",{ "requests[]": [ ] } );
+		$.post( "http://137.226.150.67:55665/print/seal",{ "requests[]": [ ] } );
 }
 
 function toggleLED(state,loc) {
